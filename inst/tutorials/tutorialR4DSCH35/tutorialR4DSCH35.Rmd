@@ -1,0 +1,763 @@
+---
+title: "Tutorial for R for Data Science Ch 3 & 5"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+library(gradethis)
+tutorial_options(exercise.checker = gradethis::grade_learnr)
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(nycflights13)
+```
+
+
+## Section 3.3.1 
+
+### 3.3.1 Easy DN
+
+#### Exercise 1 DN
+
+Write the R code for putting mpg dataset into a mpg dataframe
+
+```{r D1, exercise=TRUE}
+
+```
+
+```{r D1-solution, include=FALSE}
+mpg<- data.frame(mpg)
+```
+
+```{r D1-check}
+gradethis::grade_this_code()
+```
+
+#### Exercise 2 DN
+
+Write the R code for Viewing the mpg dataframe
+```{r D2, exercise=TRUE}
+
+```
+
+```{r D2-solution}
+View(mpg)
+```
+
+```{r D2-check}
+gradethis::grade_this_code()
+```
+
+###  3.3.1 Intermediate DN
+
+#### Exercise 12 DN
+Refer to mpg data set.  
+
+Plot a geom_point graph with displ on x-axis, hwy on y-axis, and map the shape of points to drv
+```{r D12, exercise=TRUE}
+ggplot(    ) + 
+  geom_point(    )
+```
+
+```{r D12-hint}
+"Mapping the shape of points to drv means that the argument should be included inside aesthetic"
+```
+
+```{r D12-solution}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy, shape= drv))
+```
+
+```{r D12-check}
+gradethis::grade_this_code()
+```
+
+
+#### Exercise 13 DN
+
+```{r D13}
+quiz(
+  question("Which of the following are considered asethetics in geom_point ?",
+    answer("fill", correct = TRUE),
+    answer("shape", correct = TRUE),
+    answer("size", correct= TRUE),
+    answer("length")
+  )
+)
+```
+### 3.3.1 Advanced DN  
+
+#### Exercise 23 DN
+
+Divide mpg dataframe into 2 half and plot 2 separate geom_point graphs respectively with displ on x-axis and hwy on y-axis  
+**HINT**:"spliting the mpg dataframe requires floor(), set.seed(), sample(), seq_len()"
+
+```{r D23, exercise=TRUE}
+half_size <- floor(0.5*  )
+set.seed(123123)
+mpg_half <- sample(seq_len(   ), size= half_size)
+
+mpg_1 <- mpg[mpg_half, ]
+mpg_2 <- mpg[-mpg_half, ]
+
+ggplot(data= mpg_1) +
+  geom_point(  )
+ggplot(data=mpg_2) +
+  geom_point(  )
+```
+
+```{r D23-solution}
+half_size <- floor(0.5*nrow(mpg))
+set.seed(123123)
+mpg_half <- sample(seq_len(nrow(mpg)),size= half_size)
+
+mpg_1 <- mpg[mpg_half, ]
+mpg_2 <- mpg[-mpg_half, ]
+
+ggplot(data= mpg_1) +
+  geom_point(mapping = aes(x= displ, y = hwy))
+ggplot(data=mpg_2) +
+  geom_point(mapping = aes(x= displ, y = hwy))
+```
+
+```{r D23-check}
+gradethis::grade_this_code()
+```
+
+## Section 3.6.1 DN
+
+### 3.6.1 Easy DN
+
+#### Exercise 3 DN
+
+```{r D3}
+quiz(
+  question("Which of the following are considered variables in facet_wrap ?",
+    answer("rows"),
+    answer("cols"),
+    answer("nrow", correct= TRUE),
+    answer("ncol", correct= TRUE)
+  )
+)
+```
+
+#### Exercise 4 DN
+
+```{r D4}
+quiz(
+  question("Which of the following are considered variables in facet_grid ?",
+    answer("rows", correct= TRUE),
+    answer("cols", correct= TRUE),
+    answer("nrow"),
+    answer("ncol")
+  )
+)
+```
+
+### 3.6.1 Intermediate DN
+
+#### Exercise 14 DN
+
+Recreate the R code necessary to generate the following graphs
+```{r D14-graph}
+ggplot(data=mpg, mapping = aes(x= displ, y= hwy)) +
+  geom_point() +
+  geom_line()
+```
+
+```{r D14, exercise=TRUE}
+ggplot(data=mpg, mapping = aes(   ,   )) +
+  geom_point() +
+  geom_line()
+```
+
+```{r D14-hint}
+"You would need 2 geom graphs"
+```
+
+```{r D14-solution}
+ggplot(data=mpg, mapping = aes(x= displ, y= hwy)) +
+  geom_point() +
+  geom_line()
+```
+
+```{r D14-check}
+gradethis::grade_this_code()
+```
+
+#### Exercise 15 DN
+
+Recreate the R code necessary to generate the following graphs
+```{r D15-graph}
+ggplot() +
+  geom_point(data=mpg, mapping= aes(x=displ, y= hwy, color= drv)) +
+  geom_line(data=mpg, mapping = aes(x=displ, y= hwy, color= drv))
+
+```
+
+```{r D15, exercise=TRUE}
+ggplot() +
+  geom_point() +
+  geom_line()
+
+```
+
+```{r D15-hint}
+"You should map the color of points to drv variable"
+```
+
+```{r D15-solution}
+ggplot() +
+  geom_point(data=mpg, mapping= aes(x=displ, y= hwy, color= drv)) +
+  geom_line(data=mpg, mapping = aes(x=displ, y= hwy, color= drv))
+```
+
+```{r D15-check}
+gradethis::grade_this_code()
+```  
+
+### Advanced 3.6.1 DN
+
+#### Exercise 24 DN
+
+Refer to the mpg dataset.  
+
+Write the R code to plot 1 geom_point graph and 1 geom_smooth graph, with color=class, excluding all 2seater cars  
+
+```{r D24, exercise=TRUE}
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + 
+   geom_point(data =   ) + 
+   geom_smooth(data = , se=FALSE)
+```
+
+```{r D24-hint}
+"Remind yourself how you utilized filter() function earlier "
+```
+
+```{r D24-solution}
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + 
+   geom_point(data = filter(mpg, class != "2seater"), mapping = aes(color = class)) + 
+   geom_smooth(data = filter(mpg, class != "2seater"), se= FALSE)
+```
+
+```{r D24-check}
+gradethis::grade_this_code()
+```
+
+## Section 5.2.4 DN
+
+### Easy 5.2.4 DN
+
+#### Exercise 5 DN
+
+Refer to flights dataset.
+Find all flights that arrived on Christmas Eve (24th December)
+
+```{r D5, exercise=TRUE}
+filter(flights,     &     )
+```
+
+```{r D5-hint}
+"Experiment with the filter() function"
+```
+
+```{r D5-solution}
+filter(flights, month == 12 & day == 24)
+```
+
+```{r D5-check}
+gradethis::grade_this_code()
+```
+
+### Intermediate 5.2.4 DN  
+
+#### Exercise 16 DN  
+
+Refer to flights dataset.
+Find all flights with missing dep_delay, and arr_delay  
+
+```{r D16, exercise=TRUE}
+filter(flights,     &     )
+```
+
+
+```{r D16-hint}
+"Experiment with is.na() and filter() function"
+```
+
+```{r D16-solution}
+ggplot() +
+  geom_point(data=mpg, mapping= aes(x=displ, y= hwy, color= drv)) +
+  geom_line(data=mpg, mapping = aes(x=displ, y= hwy, color= drv))
+```
+
+```{r D16-check}
+gradethis::grade_this_code()
+```
+
+### Advanced 5.2.4 DN  
+
+#### Exercise 25 DN  
+
+Refer to flights dataset.
+Find all flights that belong to Mesa Airlines, Hawaiian Airlines, and Alaska Airlines
+
+```{r D25-hint}
+"type airplanes in the console"
+```
+
+```{r D25, exercise=TRUE}
+filter(flights, carrier ==    )
+```
+
+```{r D25-solution}
+filter(flights, carrier == c("YV","HA","AS"))
+```
+
+```{r D25-check}
+gradethis::grade_this_code()
+```  
+
+## Section 5.3.1 DN
+
+### Easy 5.3.1 DN
+
+#### Exercise 6 DN
+
+```{r D6}
+quiz(
+  question("Which of the following are considered arguments in arrange() ?",
+    answer("data"),
+    answer(".data", correct= TRUE),
+    answer("by_group"),
+    answer(".by_group", correct= TRUE)
+  )
+)
+```
+
+#### Exercise 7 DN  
+
+```{r D7}
+quiz(
+  question("Using arrange() function, where are NA values located ?",
+    answer("top of the data"),
+    answer("randomized"),
+    answer("end of the data", correct= TRUE)
+  )
+)
+```
+
+### Intermediate 5.3.1 DN  
+
+#### Exercise 17 DN 
+
+Refer to flights dataset.
+Arrange flights based on descending dep_delay  
+
+```{r D17, exercise=TRUE}
+arrange(  ,   )
+```
+
+```{r D17-hint}
+"Experiment with arrange() function"
+```
+
+```{r D17-solution}
+arrange(flights, desc(dep_delay))
+```
+
+```{r D17-check}
+gradethis::grade_this_code()
+```
+
+#### Exercise 18 DN 
+
+Refer to flights dataset.
+Arrange flights based on ascending distance
+
+```{r D18, exercise=TRUE}
+arrange(    ,    )
+```
+
+```{r D18-hint}
+"Ascending order is the default for arrange()"
+```
+
+```{r D18-solution}
+arrange(flights, distance)
+```
+
+```{r D18-check}
+gradethis::grade_this_code()
+```
+
+### Advanced 5.3.1 DN
+
+#### Exercise 27 DN
+
+Make a new column in flights dataset called speed where speed = distance/air_time. Arrange flights based on descending speed
+```{r D27, exercise=TRUE}
+flights <- flights %>%
+  mutate(speed =   /   )
+  arrange(  ,  )
+```
+
+```{r D27-hint}
+"Experiment with contains() function in dplyr package "
+```
+
+```{r D27-solution}
+flights <- flights %>%
+  mutate(speed = distance/air_time)
+  arrange(flights, desc(speed))
+```
+
+```{r D27-check}
+gradethis::grade_this_code()
+```
+
+## Section 5.4.1 DN
+
+### Easy 5.4.1 DN  
+
+#### Exercise 8 DN  
+
+Refer to flights dataset.
+Rename air_time column to airtime 
+
+```{r D8, exercise=TRUE}
+rename(flights,   =     )
+```
+
+```{r D8-hint}
+"Experiment with the rename() function"
+```
+
+
+```{r D8-solution}
+rename(flights, airtime = air_time)
+```
+
+```{r D8-check}
+gradethis::grade_this_code()
+```
+
+### Intermediate 5.4.1 DN  
+
+#### Exercise 19 DN 
+
+Refer to flights dataset.
+Select all columns except year, month, day column  
+
+```{r D19, exercise=TRUE}
+select(flights,    )
+```
+
+```{r D19-hint}
+"You can either list all other columns beside year, month, day or use `!` "
+```
+
+```{r D19-solution}
+select(flights, !c(year, month, day))
+```
+
+```{r D19-check}
+gradethis::grade_this_code()
+```  
+
+### Advanced 5.4.1 DN  
+
+#### Exercise 26 DN 
+Refer to flights dataset.
+Select all columns not containing the word "time"
+
+```{r D26, exercise=TRUE}
+select(flights,    )
+```
+
+```{r D26-hint}
+"Experiment with contains() function in dplyr package "
+```
+
+```{r D26-solution}
+select(flights, !contains("time"))
+```
+
+```{r D26-check}
+gradethis::grade_this_code()
+```
+
+## Section 5.5.2 DN
+
+### Easy 5.5.2 DN
+
+#### Exercise 9 DN
+
+```{r D9}
+quiz(
+  question("Which of the following arguments control where new columns should appear in mutate() ?",
+    answer(".data"),
+    answer(".keep"),
+    answer(".before"),
+    answer(".after", correct= TRUE)
+  )
+)
+```
+
+#### Exercise 10 DN 
+
+```{r D10}
+quiz(
+  question("Using mutate(), What will happen to NULL values in output column ?",
+    answer("removed", correct= TRUE),
+    answer("retained"),
+    answer("changed to NA"),
+    answer("changed to logical(0)")
+  )
+)
+```
+
+### Intermediate 5.5.2 DN
+
+#### Exercise 20 DN  
+
+Refer to flights dataset.
+Add a new column called air_time_hours by converting air_time from minutes to hours
+
+```{r D20, exercise=TRUE}
+mutate(    ,    )
+```
+
+```{r D20-hint}
+"Experiment with mutate() function "
+```
+
+```{r D20-solution}
+mutate(flights, air_time_hours = air_time/60)
+```
+
+```{r D20-check}
+gradethis::grade_this_code()
+```
+
+#### Exercise 21 DN  
+
+Refer to flights dataset.
+Add a new column called distance_km by converting distance from miles to km (1 mile = 1.61 km)  
+
+```{r D21, exercise=TRUE}
+mutate(    ,    )
+```
+
+```{r D21-hint}
+"Experiment with mutate() function "
+```
+
+```{r D21-solution}
+mutate(flights, distance_km = distance * 1.61)
+```
+
+```{r D21-check}
+gradethis::grade_this_code()
+```
+
+### Advanced 5.5.2 DN  
+
+#### Exercise 28 DN   
+
+Refer to flights dataset.
+Rank the 10 fastest flights and 10 slowest flights  
+
+```{r D28-hint}
+"Experiment with top_n() function"
+```
+
+```{r D28, exercise=TRUE}
+flights <- mutate(flights, speed= distance/air_time)
+arrange(  ,  ) %>% 
+arrange(  ,  ) %>% 
+```
+
+```{r D28-solution}
+flights <- mutate(flights, speed=distance/air_time)
+arrange(flights, desc(speed)) %>% top_n(10)
+arrange(flights, speed) %>% top_n(10)
+```
+
+```{r D28-check}
+gradethis::grade_this_code()
+```
+
+## Section 5.6.7 DN
+
+### Easy 5.6.7 DN  
+
+#### Exercise 11 DN  
+Refer to flights dataset.
+Find the mean air time for each month
+
+```{r D11, exercise = TRUE}
+flights %>% 
+  group_by( ) %>%
+  summarise(mean_air_time = mean( ))
+```
+
+```{r D11-hint}
+"NAs should be removed in calculating the mean air time"
+```
+
+```{r D11-solution}
+flights %>% 
+  group_by(year, month) %>%
+  summarise(mean_air_time = mean(air_time, na.rm = TRUE))
+```
+
+```{r D11-check}
+gradethis::grade_this_code()
+```
+
+### Intermediate 5.6.7 DN  
+
+#### Exercise 22 DN  
+
+Refer to flights dataset.
+Find the median air time for each day of the year
+
+```{r D22, exercise=TRUE}
+flights %>% 
+  group_by(   ) %>%
+  summarise(median_air_time = median(   ))
+```
+
+```{r D22-hint}
+"NAs should be removed in calculating the mean air time "
+```
+
+```{r D22-solution}
+flights %>% 
+  group_by(year, month, day) %>%
+  summarise(median_air_time = median(air_time, na.rm = TRUE))
+```
+
+```{r D22-check}
+gradethis::grade_this_code()
+```
+
+### Advanced 5.6.7 DN  
+
+#### Exercise 29 (5.6.7)  
+
+Refer to flights dataset.
+Find the first departure and last arrival for each day of the year, and plot the following graph  
+
+```{r D29-graph}
+flights %>%
+  filter(!is.na(dep_time)&!is.na(arr_time)) %>%
+  group_by(year, month, day) %>%
+  summarise(first_dep = first(dep_time),
+            last_arr = last(arr_time)) %>%
+  ggplot(aes(first_dep,last_arr)) +
+  geom_smooth()
+```
+
+```{r D29, exercise=TRUE}
+flights %>%
+  filter(    &    ) %>%
+  group_by(    ) %>%
+  summarise(first_dep = first(   ),
+            last_arr  =  last(   )) %>%
+  ggplot(aes(first_dep,last_arr)) +
+  geom_smooth()
+```
+
+```{r D29-hint}
+"Refer back to our prevous exercises which use is.na(), group_by(), and summarise()"
+```
+
+```{r D29-solution}
+flights %>%
+  filter(!is.na(dep_time)&!is.na(arr_time)) %>%
+  group_by(year, month, day) %>%
+  summarise(first_dep = first(dep_time),
+            last_arr = last(arr_time)) %>%
+  ggplot(aes(first_dep,last_arr)) +
+  geom_smooth()
+```
+
+```{r D29-check}
+gradethis::grade_this_code()
+```
+
+
+
+
+
+
+
+
+
+
+
+## Topic 1
+
+### Exercise 
+
+*Here's a simple exercise with an empty code chunk provided for entering the answer.*
+
+Write the R code required to add two plus two:
+
+```{r two-plus-two, exercise=TRUE}
+
+```
+
+### Exercise with Code
+
+*Here's an exercise with some prepopulated code as well as `exercise.lines = 5` to provide a bit more initial room to work.*
+
+Now write a function that adds any two numbers and then call it:
+
+```{r add-function, exercise=TRUE, exercise.lines = 5}
+add <- function() {
+  
+}
+```
+
+## Topic 2
+
+### Exercise with Hint
+
+*Here's an exercise where the chunk is pre-evaulated via the `exercise.eval` option (so the user can see the default output we'd like them to customize). We also add a "hint" to the correct solution via the chunk immediate below labeled `print-limit-hint`.*
+
+Modify the following code to limit the number of rows printed to 5:
+
+```{r print-limit, exercise=TRUE, exercise.eval=TRUE}
+mtcars
+```
+
+```{r print-limit-hint}
+head(mtcars)
+```
+
+### Quiz
+
+*You can include any number of single or multiple choice questions as a quiz. Use the `question` function to define a question and the `quiz` function for grouping multiple questions together.*
+
+Some questions to verify that you understand the purposes of various base and recommended R packages:
+
+```{r quiz}
+quiz(
+  question("Which package contains functions for installing other R packages?",
+    answer("base"),
+    answer("tools"),
+    answer("utils", correct = TRUE),
+    answer("codetools")
+  ),
+  question("Which of the R packages listed below are used to create plots?",
+    answer("lattice", correct = TRUE),
+    answer("tools"),
+    answer("stats"),
+    answer("grid", correct = TRUE)
+  )
+)
+```
