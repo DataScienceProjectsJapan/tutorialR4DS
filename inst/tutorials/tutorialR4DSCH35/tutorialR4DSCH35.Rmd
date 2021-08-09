@@ -315,6 +315,30 @@ gradethis:: grade_code()
 ```
 
 
+## Section 3.6.1 YY
+
+
+#### 3.6.1 Easy YY
+Change the number of nrow in the code below and run the code to understand what nrow means.
+```{r 136, exercise=TRUE, exercise.eval=TRUE}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) + 
+  facet_wrap(~ class, nrow = 2)
+```
+```{r 136-hint-1}
+"nrow means numbr of the row "
+```
+
+#### Exercise 2  
+
+```{r quiz236}
+question("Which of the geom that is for displaying the results with a non-standard geom",
+  answer("geom_smooth", correct = TRUE),
+  answer("geom_point"),
+  answer("geom_bar"),
+  answer("There is no answer here.")
+)
+```
 
 
 
@@ -431,6 +455,44 @@ gradethis::grade_code()
 
 ```
 
+### 3.6.1 Intermediate YY
+#### Exercise 3
+
+Change the variable that is assigned to linetype to "cyl" and predict what will be created before run the code.
+```{r 336, exercise=TRUE, exercise.eval=TRUE}
+ggplot(data = mpg) + 
+  geom_smooth(mapping = aes(x = displ, y = hwy, linetype = drv))
+```
+```{r 336-hint-1}
+"Be careful!! "
+```
+```{r 336-solution}
+ggplot(data = mpg) + 
+  geom_smooth(mapping = aes(x = displ, y = hwy, linetype = cyl))
+```
+```{r 336-check}
+gradethis::grade_code()
+```
+#### Exercise 4
+Add codes and  make it run.
+
+```{r 436, exercise=TRUE, exercise.eval=TRUE}
+ggplot() + 
+  geom_smooth()
+```
+```{r 436-hint-1}
+"Function that couse error is what we read in chapter 3.5.
+Remember what you learned. "
+```
+```{r 436-solution}
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + 
+  geom_smooth()
+```
+```{r 436-check}
+gradethis::grade_code()
+```
+
+
 
 
 ### Advanced 3.6.1 DN
@@ -488,6 +550,115 @@ gradethis:: grade_code()
 
 ```
 
+### 3.6.1 Challenging  YY
+#### Exercise 5
+
+Create the graphs below.
+
+<img src="https://d33wubrfki0l68.cloudfront.net/e4e1d3f9256c683b5219f9dd0eee81d0320e9664/cc55f/visualize_files/figure-html/unnamed-chunk-28-2.png" alt="drawing" style="width:400px;"/>
+
+
+```{r 536, exercise=TRUE, exercise.eval=TRUE}
+
+```
+```{r 536-hint-1}
+"use geom_points"
+```
+```{r 536-solution}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) +
+  geom_smooth(mapping = aes(x = displ, y = hwy))
+```
+```{r 536-check}
+gradethis::grade_code()
+```
+
+####################################################################
+
+
+## Section 3.7.1 YY
+
+### 3.7.1 Easy YY
+#### Exercise 1
+
+In this execise we are going to use new dataset called diamonds.
+Run the code to get to know diamonds.
+```{r 137, exercise=TRUE, exercise.eval=TRUE}
+
+```
+```{r 137-hint-1}
+"Use ? "
+```
+```{r 137-solution}
+?diamonds
+```
+```{r 137-check}
+gradethis::grade_code()
+```
+
+#### Exercise 2  
+
+```{r quiz37}
+question("According to the text, which kind of graph compute a robust summary of the distribution and then display a specially formatted box?",
+  answer("boxplots", correct = TRUE),
+  answer("bar graph"),
+  answer("scatter plot"),
+  answer("spider chart")
+)
+```
+### 3.7.1 Intermediate YY
+#### Exercise 3
+
+
+
+Run the code below. That code have "stat_count" and you can see the graph. Change variable of x-axis to "color".
+```{r 337, exercise=TRUE, exercise.eval=TRUE}
+ggplot(data = diamonds) + 
+  stat_count(mapping = aes(x = cut))
+```
+```{r 337-solution}
+ggplot(data = diamonds) + 
+  stat_count(mapping = aes(x = color))
+```
+```{r 337-check}
+gradethis::grade_code()
+```
+
+#### Exercise 4
+```{r quiz437}
+question("what does prep in the code mean? ",
+  answer("variable prep"),
+  answer("count of each variable"),
+  answer("what percentage does each varlable occupy.", correct = TRUE),
+  answer("No answer here")
+)
+```
+### 3.7.1 Challenging  YY
+#### Exercise 5
+
+Create the graphs below.(Top and bottom of each line and each point means max value, minimum value and median respectively.)
+
+<img src="https://d33wubrfki0l68.cloudfront.net/4f7c8830283cb7009346ed85a8196b06959f5abd/78175/visualize_files/figure-html/unnamed-chunk-34-1.png" alt="drawing" style="width:400px;"/>
+
+```{r 537, exercise=TRUE, exercise.eval=TRUE}
+
+```
+```{r 537-hint-1}
+"the points on the lines are median. Thus, use fun = median"
+```
+```{r 537-solution}
+ggplot(data = diamonds) + 
+  stat_summary(
+    mapping = aes(x = cut, y = depth),
+    fun.min = min,
+    fun.max = max,
+    fun = median
+  )
+```
+```{r 537-check}
+gradethis::grade_code()
+```
+
 
 
 ## Section 5.2.4 DN
@@ -535,6 +706,25 @@ filter(flights, arr_delay >= 60)
 gradethis::grade_code()
 ```
 
+## Section 5.2.4 YY
+
+### 5.2.4 Easy YY
+#### Exercise 1
+
+In this execise, we are going to use filter(). run the code to get the information of that. 
+
+```{r 152, exercise=TRUE, exercise.eval=TRUE}
+
+```
+```{r 152-hint-1}
+"Use ? "
+```
+```{r 152-solution}
+?filter()
+```
+```{r 152-check}
+gradethis::grade_code()
+```
 
 
 ### Intermediate 5.2.4 DN  
@@ -580,6 +770,22 @@ filter(flights, month >= 7, month <= 9)
 gradethis::grade_code()
 ```
 
+### 5.2.4 Intermediate YY
+#### Exercise 2
+
+Find all flights that depart from LGA and EWR
+```{r 352, exercise=TRUE, exercise.eval=TRUE}
+
+```
+```{r 352-hint-1}
+"Use filter and |(or)"
+```
+```{r 523-solution}
+filter(flights, dest == 'LGA' | dest == 'EWR')
+```
+```{r 352-check}
+gradethis::grade_code()
+```
 
 
 ### Advanced 5.2.4 DN  
@@ -623,7 +829,25 @@ filter(flights, dep_time %% 2400 <= 600)
 gradethis::grade_code()
 ```
 
+### 5.2.4 Challenging  YY
+#### Exercise 3
 
+Find same flights that code below represents using !()
+```{r 552, exercise=TRUE, exercise.eval=TRUE}
+filter(flights, arr_delay > 60, dep_delay > 60)
+```
+```{r 552-hint-1}
+"!() means out of the specified range"
+```
+```{r 552-solution}
+filter(flights, !(arr_delay <= 60 | dep_delay <= 60))
+```
+```{r 552-check}
+gradethis::grade_code()
+```
+
+
+####################################################################
 
 #############################################
 ## Section 5.3.1 DN
@@ -673,6 +897,31 @@ arrange(flights, desc(dep_delay))
 ```{r two-plus-1a-check}
 gradethis::grade_code()
 ```
+
+
+## Section 5.3.1 YY
+
+### 5.3.1 Easy YY
+#### Exercise 1
+
+Run the code below and figure out what is printed.
+```{r 153, exercise=TRUE, exercise.eval=TRUE}
+arrange(flights, year)
+```
+
+#### Exercise 2  
+
+Use desc() to re-order by a column in descending order.
+```{r 253, exercise=TRUE, exercise.eval=TRUE}
+arrange(flights, dep_delay)
+```
+```{r 253-solution}
+arrange(flights, desc(dep_delay))
+```
+```{r 253-check}
+gradethis::grade_code()
+```
+
 
 
 
@@ -740,6 +989,30 @@ gradethis::grade_code()
 
 
 
+### 5.3.1 Intermediate YY
+#### Exercise 3
+
+Find the fastest flight on March 5 2013.
+```{r 353, exercise=TRUE, exercise.eval=TRUE}
+
+```
+```{r 353-hint-1}
+"You can use asc()"
+```
+#### Exercise 4
+
+```{r quiz153}
+question("Missing values are always sorted at where? ",
+  answer("head"),
+  answer("middle"),
+  answer("Anywhere you designate"),
+  answer("end", correct = TRUE)
+)
+```
+
+
+
+
 ### Advanced 5.3.1 DN
 
 #### Exercise 27 DN
@@ -783,6 +1056,14 @@ arrange(flights, distance)
 gradethis::grade_code()
 ```
 
+
+### 5.3.1 Challenging  YY
+#### Exercise 5
+Sort flights to find the most delayed flights. (No hint)
+
+```{r 553, exercise=TRUE, exercise.eval=TRUE}
+
+```
 
 
 #######################################
@@ -838,6 +1119,15 @@ gradethis::grade_code()
 ```
 
 
+## Section 5.4.1 YY
+
+### 5.4.1 Easy YY
+#### Exercise 1
+
+Run ?select() to learn it.
+```{r 154, exercise=TRUE, exercise.eval=TRUE}
+
+```
 
 
 ### Intermediate 5.4.1 DN  
@@ -877,6 +1167,16 @@ select(flights, starts_with("dep_"), starts_with("arr_"))
 gradethis::grade_code()
 ```
 
+### 5.4.1 Intermediate YY
+#### Exercise 2
+
+Select one column on the "flights"
+```{r 254, exercise=TRUE, exercise.eval=TRUE}
+
+```
+```{r 554-hint-1}
+"use select()"
+```
 
 
 
@@ -920,6 +1220,22 @@ select(flights, !!variables)
 ```{r two-plus-3b-check}
 gradethis::grade_code()
 ```
+
+
+
+### 5.4.1 Challenging  YY
+#### Exercise 3
+
+Select the variable called "day" using starts_with(), ends_with(), contains().
+The argument of each function must be one alphabet.
+
+```{r 554, exercise=TRUE, exercise.eval=TRUE}
+
+```
+```{r 5545-hint-1}
+"use ? if you are not sure about these parameter(function)"
+```
+
 
 ########################################################
 
@@ -967,6 +1283,26 @@ question("what would the following code 1504 %/% 100 give",
 )
 ```
 
+## Section 5.5.2  YY
+
+### 5.5.2  Easy YY
+##### Exercise 1
+
+Run the code below and figure out what is mutate().
+```{r 155, exercise=TRUE, exercise.eval=TRUE}
+?mutate
+```
+
+#### Exercise 2  
+
+```{r quiz155}
+question("If x <- 2:7, what is lag(x)?",
+  answer("[1] NA  2  3  4  5  6", correct = TRUE),
+  answer("[1] 2  3  4  5  6  NA"),
+  answer("[1] 1  2  3  4  5  6"),
+  answer("[1] 2  3  4  5  6  7")
+)
+```
 
 
 
@@ -1027,6 +1363,34 @@ question(" what does the following give us 1:3 + 1:10",
 ```
 
 
+### 5.5.2  Intermediate YY
+#### Exercise 3
+
+Add new varible named "gain"
+gain = dep_delay - arr_delay
+```{r 355, exercise=TRUE, exercise.eval=TRUE}
+
+```
+```{r 355-hint-1}
+"Use mutate()"
+```
+```{r 355-solution}
+mutate(flights,
+  gain = dep_delay - arr_delay,)
+```
+```{r 355-check}
+gradethis::grade_code()
+```
+#### Exercise 4
+
+```{r 2quiz55}
+question("transmute",
+  answer("change content of the variable"),
+  answer("create new variable and delete old one", correct = TRUE),
+  answer("change the name of variable"),
+  answer("do nothing")
+)
+```
 
 
 ### Advanced 5.5.2 DN  
@@ -1078,6 +1442,22 @@ filter(flights_deptime, dep_delay_diff != 0)
 gradethis::grade_code()
 ```
 
+### 5.5.2  Challenging  YY
+#### Exercise 5
+
+Order "flights" by year,month and day.
+Then, create new variable that represents cumulative sum of  distance.
+
+```{r 5, exercise=TRUE, exercise.eval=TRUE}
+
+```
+```{r 555-hint-1}
+"Use arrange() to order the dataframe"
+```
+
+
+
+
 ###############################################
 ## Section 5.6.7 DN
 
@@ -1119,6 +1499,14 @@ question("which delay may prove costlier to customer?",
 ```
 
 
+
+## Section 5.6.7  YY
+### 5.6.7  Easy YY
+#### Exercise 1
+In this execise, we will use sumarize(). Run the code below to leanrn summrize()
+```{r 1, exercise=TRUE, exercise.eval=TRUE}
+?summarise()
+```
 
 
 ### Intermediate 5.6.7 DN  
@@ -1171,6 +1559,17 @@ gradethis::grade_code()
 ```
 
 
+### 5.6.7  Intermediate YY
+#### Exercise 2
+
+```{r quiz}
+question("summarise() need another function to be available. what is it?",
+  answer("group_by()", correct = TRUE),
+  answer("sort()"),
+  answer("mutate()"),
+  answer("arrange()")
+)
+```
 
 
 
@@ -1237,6 +1636,33 @@ gradethis::grade_code()
 ```
 
 
+
+### 5.6.7  Challenging  YY
+#### Exercise 3
+The code below want to get mean of arr_delay per year, month and day.
+But it cannot.
+Modify the code and get mean of arr_delay per year, month and day.
+```{r 556, exercise=TRUE, exercise.eval=TRUE}
+not_cancelled <- flights %>% 
+  filter(!is.na(dep_delay), !is.na(arr_delay))
+not_cancelled %>% 
+  group_by(year, month, day) %>% 
+  summarise(
+    avg_delay1 = sum(arr_delay),
+  )
+```
+```{r 556-solution}
+not_cancelled <- flights %>% 
+  filter(!is.na(dep_delay), !is.na(arr_delay))
+not_cancelled %>% 
+  group_by(year, month, day) %>% 
+  summarise(
+    avg_delay1 = mean(arr_delay),
+  )
+```
+```{r 556-check}
+gradethis::grade_code()
+```
 
 
 ####################################
