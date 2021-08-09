@@ -2018,7 +2018,7 @@ Then, create new variable that represents cumulative sum of  distance.
 
 Now that we got the total delay, let's try to find if there is any relation between the distance travelled and delay. If there is any relation then analyze the case for each flight (carrier) using facet.
 
-<img src="C:\Users\hp\Documents\Test Project\seminar class\LearningRepository\Hadley_Exercises\Hadley4rDS_Section5.3\graph.png">
+<img src="images/graph.png">
 
 
 ```{r arrange_delay, exercise=TRUE, exercise.eval=TRUE}
