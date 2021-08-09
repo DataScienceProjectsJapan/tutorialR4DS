@@ -1170,10 +1170,10 @@ gradethis::grade_code()
 *These questions will be in parts *
 Part1: Arrange flights in the order of year, month and day
 Part2: Filter Delta flights departed in the month of November and December (carrier is DL)
-How many rows are there now?
+How many rows are there now? (you can check flights -don't forget to remove the quotes)
 
 ```{r flights_e, exercise=TRUE, exercise.eval=TRUE}
-?flights
+"?flights"
 ```
 
 ```{r flights_e-hint}
@@ -1815,9 +1815,9 @@ question("what would the following code 1504 %/% 100 give",
 ### 5.5.2  Easy YY
 ##### Exercise 1
 
-Run the code below and figure out what is mutate().
+Run the code below and figure out what is mutate(). Don't forget to remove the quotation marks.
 ```{r 155, exercise=TRUE, exercise.eval=TRUE}
-?mutate
+"?mutate"
 ```
 
 #### Exercise 2  
@@ -1931,10 +1931,10 @@ question("transmute",
 
 *These questions will be in parts *
 Part1: Make a new variable called delay which will be the total delay from departure to arrival.
-Part2: Since we donot want some variables like arr_time, dep_time etc., let's drop it.
+Part2: Since we donot want some variables like arr_time, dep_time etc., let's drop it. (you can check flights -don't forget to remove the quotes)
 
 ```{r flights, exercise=TRUE, exercise.eval=TRUE}
-?flights
+"?flights"
 ```
 
 ```{r flights-hint}
@@ -2073,9 +2073,9 @@ question("which delay may prove costlier to customer?",
 ## Section 5.6.7  YY
 ### 5.6.7  Easy YY
 #### Exercise 1
-In this execise, we will use sumarize(). Run the code below to leanrn summrize()
+In this execise, we will use sumarize(). Run the code below to leanrn summrize() (remove the quotation marks)
 ```{r 1, exercise=TRUE, exercise.eval=TRUE}
-?summarise()
+"?summarise()"
 ```
 
 ## Section 5.6.7  SD
