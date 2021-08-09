@@ -49,6 +49,56 @@ View(mpg)
 gradethis::grade_this_code()
 ```
 
+### 3.2.4 EASY WC
+####  BLANK
+
+## section 3.3.1 KA
+
+### 3.3.1 Easy KA
+
+write the code that will load tidyverse:
+
+```{r two-plus-two, exercise=TRUE}
+
+```
+```{r two-plus-two-hint-1}
+"first part is library()"
+
+```
+```{r two-plus-two-hint-2}
+"you need to insert the word tidyverse"
+```
+
+```{r two-plus-two-solution}
+library(tidyverse)
+```
+```{r two-plus-two-check}
+gradethis::grade_code()
+```
+
+### 3.3.1 Easy KA
+
+if you want learn more about the variables in mpg which code should you run
+
+```{r two-plus-three, exercise=TRUE}
+
+```
+```{r two-plus-three-hint-1}
+"use the ? sign"
+```
+
+```{r two-plus-three-solution}
+?mpg
+```
+
+```{r two-plus-three-check}
+gradethis:: grade_code()
+```
+
+
+
+
+
 ###  3.3.1 Intermediate DN
 
 #### Exercise 12 DN
@@ -86,6 +136,62 @@ quiz(
   )
 )
 ```
+
+### 3.3.1 Intermediate KA
+
+<!-- ![picture](images/Rplot22.png) -->
+<img src="images/Rplot22.png" alt="drawing" style="width:400px;"/>
+
+enter the code that creates the above graph
+
+```{r two-plus-four, exercise=TRUE}
+
+```
+
+```{r two-plus-four-hint-1}
+"you need to use both ggplot() and ggplot_point()"
+```
+
+```{r two-plus-four-hint-2}
+"ggplot(data = mpg) + 
+  geom_point(mapping = aes(x= , y= ))"
+```
+
+```{r two-plus-four-solution}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy))
+```
+
+```{r two-plus-four-check}
+gradethis:: grade_code()
+```
+
+### 3.3.1 Intermediate KA
+
+<!-- ![picture](images/Rplot23.png) -->
+<img src="images/Rplot23.png" alt="drawing" style="width:400px;"/>
+
+complete the code to create the above graph
+
+```{r two-plus-five, exercise=TRUE}
+
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy, ))
+             
+```
+
+```{r two-plus-five-hint-1}
+"missing part is size"
+```
+
+```{r two-plus-five-solution}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy, size = class))
+```
+```{r two-plus-five-check}
+gradethis:: grade_code()
+```
+
 ### 3.3.1 Advanced DN  
 
 #### Exercise 23 DN
@@ -125,6 +231,29 @@ ggplot(data=mpg_2) +
 gradethis::grade_this_code()
 ```
 
+### 3.3.1 Challenging KA
+
+<!-- ![picture](images/Rplot24.png) -->
+<img src="images/Rplot24.png" alt="drawing" style="width:400px;"/>
+
+
+run the code that creates the graphs above
+
+```{r two-plus-six, exercise=TRUE}
+
+```
+```{r two-plus-six-hint-1}
+"you need to add shape = class"
+```
+```{r two-plus-six-solution}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy, shape = class))
+```
+```{r two-plus-six-check}
+gradethis:: grade_code()
+```
+
+########################################
 ## Section 3.6.1 DN
 
 ### 3.6.1 Easy DN
@@ -154,6 +283,40 @@ quiz(
   )
 )
 ```
+
+### Easy 3.6.1 KA
+```{r quiz1a}
+question("which is geom?",
+  answer("A geom is the geometrical object that a plot uses to represent data", correct = TRUE),
+  answer("is a german car"),
+  answer("is a programing language")
+)
+```
+
+### 3.6.1 Easy KA
+<!-- ![picture](images/Rplot28.png) -->
+<img src="images/Rplot28.png" alt="drawing" style="width:400px;"/>
+
+
+run the code to create the above graph using ggplot()
+
+
+```{r two-plus-eight, exercise=TRUE}
+
+```
+
+```{r two-plus-eight-solution}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy))
+```
+
+```{r two-plus-eight-check}
+gradethis:: grade_code()
+```
+
+
+
+
 
 ### 3.6.1 Intermediate DN
 
@@ -217,6 +380,59 @@ ggplot() +
 gradethis::grade_this_code()
 ```  
 
+### 3.6.1 Intermediate KA
+
+<!-- ![picture](images/Rplot29.png) -->
+<img src="images/Rplot29.png" alt="drawing" style="width:400px;"/>
+
+fix the code to create the graph above
+
+```{r two-plus-nine, exercise=TRUE}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy, linetype = drv))
+```
+```{r two-plus-nine-hint-1}
+"try geom _smooth() rather than geom_point()"
+```
+
+```{r two-plus-nine-solution}
+ggplot(data = mpg) + 
+  geom_smooth(mapping = aes(x = displ, y = hwy, linetype = drv))
+```
+
+```{r two-plus-nine-check}
+gradethis:: grade_code()
+
+```
+
+### 3.6.1 Intermediate KA
+
+<!-- ![picture](images/Rplot30.png) -->
+<img src="images/Rplot30.png" alt="drawing" style="width:400px;"/>
+
+create the above graph
+
+```{r two-plus-ten, exercise=TRUE}
+
+```
+
+```{r two-plus-ten-hint-1}
+"ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + "
+```
+
+```{r two-plus-ten-solution}
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + 
+  geom_point() + 
+  geom_smooth()
+```
+
+```{r two-plus-ten-check}
+gradethis::grade_code()
+
+```
+
+
+
 ### Advanced 3.6.1 DN
 
 #### Exercise 24 DN
@@ -245,6 +461,35 @@ ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
 gradethis::grade_this_code()
 ```
 
+### 3.6.1 Challenging KA
+
+<!-- ![picture](images/Rplot31.png) -->
+<img src="images/Rplot31.png" alt="drawing" style="width:400px;"/>
+
+finish the code to create the above graph
+
+```{r two-plus-zero, exercise=TRUE}
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + 
+  geom_point(mapping = aes(color = class)) + 
+  geom_smooth(
+```
+
+```{r two-plus-zero-hint-1}
+"you have to use the filter()"
+
+```
+
+```{r two-plus-zero-solution}
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + geom_point(mapping = aes(color = class)) + geom_smooth(data = filter(mpg, class =="subcompact"), se = FALSE)  
+```
+
+```{r two-plus-zero-check}
+gradethis:: grade_code()
+
+```
+
+
+
 ## Section 5.2.4 DN
 
 ### Easy 5.2.4 DN
@@ -269,6 +514,28 @@ filter(flights, month == 12 & day == 24)
 ```{r D5-check}
 gradethis::grade_this_code()
 ```
+
+## Section 5.2.4 KA
+
+### 5.2.4 Easy KA
+
+Write the code to find the flights that had an arrival delay of 60 minutes or more.
+
+```{r two-plus-8a, exercise=TRUE}
+
+```
+```{r two-plus-8a-hint-1}
+"filter(flights, arr_delay >="
+```
+
+```{r two-plus-8a-solution}
+filter(flights, arr_delay >= 60)
+```
+```{r two-plus-8a-check}
+gradethis::grade_code()
+```
+
+
 
 ### Intermediate 5.2.4 DN  
 
@@ -296,6 +563,25 @@ ggplot() +
 gradethis::grade_this_code()
 ```
 
+### 5.2.4 Intermediate KA
+
+wirte the code to find flights that departed between January and August
+
+```{r two-plus-threea, exercise=TRUE}
+
+```
+```{r two-plus-threea-hint-1}
+filter(flights, month >= , month <= )
+```
+```{r two-plus-threea-solution}
+filter(flights, month >= 7, month <= 9)
+```
+```{r two-plus-threea-check}
+gradethis::grade_code()
+```
+
+
+
 ### Advanced 5.2.4 DN  
 
 #### Exercise 25 DN  
@@ -319,6 +605,27 @@ filter(flights, carrier == c("YV","HA","AS"))
 gradethis::grade_this_code()
 ```  
 
+### 5.2.4 Challenging KA
+
+find the flights that Departed between midnight and 6am (inclusive).
+
+```{r two-plus-fourb, exercise=TRUE}
+
+```
+```{r two-plus-fourb-solution}
+summary(flights$dep_time)
+filter(flights, dep_time <= 600 | dep_time == 2400)
+c(600, 1200, 2400) %% 2400
+filter(flights, dep_time %% 2400 <= 600)
+```
+
+```{r two-plus-fourb-check}
+gradethis::grade_code()
+```
+
+
+
+#############################################
 ## Section 5.3.1 DN
 
 ### Easy 5.3.1 DN
@@ -347,6 +654,27 @@ quiz(
   )
 )
 ```
+
+## section 5.3.1 KA
+
+### 5.3.1 Easy KA
+
+Sort flights to find the most delayed flights. 
+
+```{r two-plus-1a, exercise=TRUE}
+
+```
+```{r two-plus-1a-hint-1}
+"use desc( ))"
+```
+```{r two-plus-1a-solution}
+arrange(flights, desc(dep_delay))
+```
+```{r two-plus-1a-check}
+gradethis::grade_code()
+```
+
+
 
 ### Intermediate 5.3.1 DN  
 
@@ -392,6 +720,26 @@ arrange(flights, distance)
 gradethis::grade_this_code()
 ```
 
+
+### 5.3.1 Intermediate KA
+
+write the code to find the Flights that left the earliest.
+
+```{r two-plus-2a, exercise=TRUE}
+
+```
+```{r two-plus-2a-hint-1}
+"the code looks similiar to the answer of question 1"
+```
+```{r two-plus-2a-solution}
+arrange(flights, dep_delay)
+```
+```{r two-plus-2a-check}
+gradethis::grade_code()
+```
+
+
+
 ### Advanced 5.3.1 DN
 
 #### Exercise 27 DN
@@ -416,6 +764,29 @@ flights <- flights %>%
 ```{r D27-check}
 gradethis::grade_this_code()
 ```
+
+### 5.3.1 Challenging KA
+
+show top 10 flights that traveled the farthest and top 10 that traveled the shortest?
+
+```{r two-plus-3a, exercise=TRUE}
+
+```
+```{r two-plus-3a-hint-1}
+"The answer follows the same idea as the answer for number 1 and 2"
+```
+```{r two-plus-3a-solution}
+arrange(flights, desc(distance))
+arrange(flights, distance)
+```
+```{r two-plus-3a-check}
+gradethis::grade_code()
+```
+
+
+
+#######################################
+
 
 ## Section 5.4.1 DN
 
@@ -443,6 +814,32 @@ rename(flights, airtime = air_time)
 gradethis::grade_this_code()
 ```
 
+
+## Section 5.4.1 KA
+
+### 5.4.1 Easy KA
+
+Use any_of () function to find dep_delay and dep_time vectors. 
+
+```{r two-plus-1b, exercise=TRUE}
+
+```
+
+```{r two-plus-1b-hint-1}
+"select(flights, any_of(c()))"
+```
+
+```{r two-plus-1b-solution}
+select(flights, any_of(c("dep_time", "dep_delay", "arr_time", "arr_delay")))
+```
+
+```{r two-plus-1b-check}
+gradethis::grade_code()
+```
+
+
+
+
 ### Intermediate 5.4.1 DN  
 
 #### Exercise 19 DN 
@@ -466,6 +863,23 @@ select(flights, !c(year, month, day))
 gradethis::grade_this_code()
 ```  
 
+### 5.4.1 Intermediat KA
+
+find the vectors dep_time, dep_delay, arr_time, arr_delay without using dep_time, dep_delay, arr_time, arr_delay in the function,, use the starts_with()function.
+
+```{r two-plus-2b, exercise=TRUE}
+
+```
+```{r two-plus-2b-solution}
+select(flights, starts_with("dep_"), starts_with("arr_"))
+```
+```{r two-plus-2b-check}
+gradethis::grade_code()
+```
+
+
+
+
 ### Advanced 5.4.1 DN  
 
 #### Exercise 26 DN 
@@ -487,6 +901,28 @@ select(flights, !contains("time"))
 ```{r D26-check}
 gradethis::grade_this_code()
 ```
+
+
+### 5.4.1 Challenging KA
+
+use the !! operator in a function to find the vectors of "dep_time", "dep_delay", "arr_time", "arr_delay".
+
+```{r two-plus-3b, exercise=TRUE}
+
+```
+```{r two-plus-3b-hint-1}
+ "Specify the names of the variables with a character vector and use the bang-bang operator (use c as a name for the variables) (!!)."
+```
+```{r two-plus-3b-solution}
+variables <- c("dep_time", "dep_delay", "arr_time", "arr_delay")
+select(flights, !!variables)
+```
+```{r two-plus-3b-check}
+gradethis::grade_code()
+```
+
+########################################################
+
 
 ## Section 5.5.2 DN
 
@@ -517,6 +953,22 @@ quiz(
   )
 )
 ```
+
+## Section 5.5.2 KA
+
+### 5.5.2 Easy KA
+
+```{r quiz2b}
+question("what would the following code 1504 %/% 100 give",
+  answer("[1] 15", correct = TRUE),
+  answer("[1] 4"),
+  answer("150,400"),
+  answer("15.04")
+)
+```
+
+
+
 
 ### Intermediate 5.5.2 DN
 
@@ -562,6 +1014,21 @@ mutate(flights, distance_km = distance * 1.61)
 gradethis::grade_this_code()
 ```
 
+
+### 5.5.2  Intermediate KA
+
+```{r quiz1c}
+question(" what does the following give us 1:3 + 1:10",
+  answer("[1]  2  4  6  5  7  9  8 10 12 11", correct = TRUE),
+  answer("[1]  2  4  6  5  7  9  9 10 12 11"),
+  answer("[1]  2  3  4  5  6  7  8 9 10 11"),
+  answer("gives us nothing")
+)
+```
+
+
+
+
 ### Advanced 5.5.2 DN  
 
 #### Exercise 28 DN   
@@ -588,7 +1055,30 @@ arrange(flights, speed) %>% top_n(10)
 ```{r D28-check}
 gradethis::grade_this_code()
 ```
+### 5.5.2 Challenging KA
 
+Compare dep_time, sched_dep_time, and dep_delay. 
+
+```{r two-plus-1d, exercise=TRUE}
+
+```
+
+```{r two-plus-1d-solution}
+flights_deptime <-
+  mutate(flights,
+    dep_time_min = (dep_time %/% 100 * 60 + dep_time %% 100) %% 1440,
+    sched_dep_time_min = (sched_dep_time %/% 100 * 60 +
+      sched_dep_time %% 100) %% 1440,
+    dep_delay_diff = dep_delay - dep_time_min + sched_dep_time_min
+  )
+filter(flights_deptime, dep_delay_diff != 0)
+```
+
+```{r two-plus-1d-check}
+gradethis::grade_code()
+```
+
+###############################################
 ## Section 5.6.7 DN
 
 ### Easy 5.6.7 DN  
@@ -617,6 +1107,20 @@ flights %>%
 gradethis::grade_this_code()
 ```
 
+## Section 5.6.7 KA
+
+### 5.6.7 Easy KA
+
+```{r quiz1e}
+question("which delay may prove costlier to customer?",
+  answer("arrival delay", correct = TRUE),
+  answer("departure delay")
+)
+```
+
+
+
+
 ### Intermediate 5.6.7 DN  
 
 #### Exercise 22 DN  
@@ -643,6 +1147,32 @@ flights %>%
 ```{r D22-check}
 gradethis::grade_this_code()
 ```
+
+### 5.6.7 Intermediate KA
+
+
+write the code to show Which carrier has the worst delays(arr_delay)?
+
+```{r two-plus-foura, exercise=TRUE}
+
+```
+```{r two-plus-foura-hint-1}
+"flights %>% group_by(carrier, dest) %>% summarise(n())"
+```
+```{r two-plus-foura-solution}
+flights %>%
+  group_by(carrier) %>%
+  summarise(arr_delay = mean(arr_delay, na.rm = TRUE)) %>%
+  arrange(desc(arr_delay))
+filter(airlines, carrier == "F9")
+```
+```{r two-plus-foura-check}
+gradethis::grade_code()
+```
+
+
+
+
 
 ### Advanced 5.6.7 DN  
 
@@ -689,75 +1219,31 @@ flights %>%
 gradethis::grade_this_code()
 ```
 
+### 5.6.7 Challenging KA
 
-
-
-
-
-
-
-
-
-
-## Topic 1
-
-### Exercise 
-
-*Here's a simple exercise with an empty code chunk provided for entering the answer.*
-
-Write the R code required to add two plus two:
-
-```{r two-plus-two, exercise=TRUE}
+What time of day should you fly if you want to avoid delays as much as possible?
+ 
+ ```{r two-plus-fivec, exercise=TRUE}
 
 ```
-
-### Exercise with Code
-
-*Here's an exercise with some prepopulated code as well as `exercise.lines = 5` to provide a bit more initial room to work.*
-
-Now write a function that adds any two numbers and then call it:
-
-```{r add-function, exercise=TRUE, exercise.lines = 5}
-add <- function() {
-  
-}
+```{r two-plus-fivec-solution}
+flights %>%
+  group_by(hour) %>%
+  summarise(arr_delay = mean(arr_delay, na.rm = TRUE)) %>%
+  arrange(arr_delay)
+```
+```{r two-plus-fivec-check}
+gradethis::grade_code()
 ```
 
-## Topic 2
 
-### Exercise with Hint
 
-*Here's an exercise where the chunk is pre-evaulated via the `exercise.eval` option (so the user can see the default output we'd like them to customize). We also add a "hint" to the correct solution via the chunk immediate below labeled `print-limit-hint`.*
 
-Modify the following code to limit the number of rows printed to 5:
+####################################
 
-```{r print-limit, exercise=TRUE, exercise.eval=TRUE}
-mtcars
-```
 
-```{r print-limit-hint}
-head(mtcars)
-```
 
-### Quiz
 
-*You can include any number of single or multiple choice questions as a quiz. Use the `question` function to define a question and the `quiz` function for grouping multiple questions together.*
 
-Some questions to verify that you understand the purposes of various base and recommended R packages:
 
-```{r quiz}
-quiz(
-  question("Which package contains functions for installing other R packages?",
-    answer("base"),
-    answer("tools"),
-    answer("utils", correct = TRUE),
-    answer("codetools")
-  ),
-  question("Which of the R packages listed below are used to create plots?",
-    answer("lattice", correct = TRUE),
-    answer("tools"),
-    answer("stats"),
-    answer("grid", correct = TRUE)
-  )
-)
-```
+
