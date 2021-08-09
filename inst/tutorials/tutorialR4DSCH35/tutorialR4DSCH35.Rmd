@@ -12,6 +12,56 @@ knitr::opts_chunk$set(echo = FALSE)
 library(tidyverse)
 library(nycflights13)
 ```
+## Section 3.2.4 SD
+
+### 3.2.4 Easy SD
+
+*Here's a simple exercise with an empty code chunk provided for entering the answer.*
+
+After installing Tidyverse package, given the mpg dataset, plot a scatterplot between any two continuous variable:
+**Hint** : *To know what variables are write ?mpg*
+
+```{r two-plus-two, exercise=TRUE}
+library(tidyverse)
+```
+
+```{r two-plus-two-solution}
+?mpg 
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy))
+```
+
+```{r two-plus-two-check}
+gradethis::grade_this_code()
+```
+
+
+### 3.2.4 Intermediate SD
+
+*Here's an exercise where you would need to apply what you learned. We also add a "hint" to the correct solution via the chunk immediate below labeled `print-limit-hint`.*
+
+Modify the following code so that the legends of the aesthetics is not shown:
+
+```{r print-limit, exercise=TRUE, exercise.eval=TRUE}
+# Horizontal Legend box
+library(tidyverse)
+x <- ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy, color = class))
+```
+
+```{r print-limit-hint}
+show.legend
+```
+
+```{r print-limit-solution}
+x <- ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy, color = class,), show.legends = FALSE)
+print(x)
+```
+
+```{r print-limit-check}
+gradethis::grade_this_code()
+```
 
 
 ## Section 3.3.1 
@@ -58,21 +108,21 @@ gradethis::grade_this_code()
 
 write the code that will load tidyverse:
 
-```{r two-plus-two, exercise=TRUE}
+```{r 22K, exercise=TRUE}
 
 ```
-```{r two-plus-two-hint-1}
+```{r 22K-hint-1}
 "first part is library()"
 
 ```
-```{r two-plus-two-hint-2}
+```{r 22k-hint-2}
 "you need to insert the word tidyverse"
 ```
 
-```{r two-plus-two-solution}
+```{r 22K-solution}
 library(tidyverse)
 ```
-```{r two-plus-two-check}
+```{r 22K-check}
 gradethis::grade_code()
 ```
 
@@ -96,6 +146,34 @@ gradethis:: grade_code()
 ```
 
 
+
+## Section 3.3.1 SD
+
+### 3.3.1 Easy SD
+
+*Here's an exercise in which you are supposed to ammend the code so that it doesn't show error*
+
+Correct the code and change the color aesthetics to alpha aesthetics mapping it with class attribute:
+**HINT**: *print x to view the graph*
+
+```{r add-function, exercise=TRUE, exercise.lines = 5}
+library(tidyverse)
+x <- ggplot(data = mpg) 
++ geom_point(mapping = aes(x = displ, y = hwy, color = red)) 
+```
+
+```{r add-function-hint}
+ # mark the position of '+'
+```
+
+```{r add-function-solution}
+library(tidyverse)
+x <- ggplot(data = mpg) + geom_point(mapping = aes(x = displ, y = hwy, alpha = class)) 
+```
+
+```{r add-function-check}
+gradethis::grade_this_code()
+```
 
 
 
@@ -192,6 +270,45 @@ ggplot(data = mpg) +
 gradethis:: grade_code()
 ```
 
+### 3.3.1 Intermediate SD
+
+*You can include any number of single or multiple choice questions as a quiz. Use the `question` function to define a question and the `quiz` function for grouping multiple questions together.*
+
+Question to verify that one has understood the basics of ggplot:
+
+```{r quiz7}
+quiz(
+  question("Which of the following modifies a ggplot or theme object by adding on new components?",
+    answer("+.gg",correct = TRUE),
+    answer("-.gg"),
+    answer("/.gg"),
+    answer(".gg")
+  )
+)
+```
+
+```{r quiz7-check}
+gradethis::grade_this_code()
+```
+
+```{r quiz8}
+quiz(
+  question("What are the basic units in the grammar of graphics?",
+    answer("Data and layers"),
+    answer("Geometries and data"),
+    answer("The data, the aesthetics, and the geometries", correct = TRUE),
+    answer("Aesthetics and geometries")
+  )
+)
+```
+
+```{r quiz8-check}
+gradethis::grade_this_code()
+```
+
+
+
+
 ### 3.3.1 Advanced DN  
 
 #### Exercise 23 DN
@@ -252,6 +369,104 @@ ggplot(data = mpg) +
 ```{r two-plus-six-check}
 gradethis:: grade_code()
 ```
+
+### 3.3.1 Challenging  SD
+
+Make a 3D scatterplot to analyse the relation between sepal length, sepal width and petal length.
+```{r Challenge, exercise=TRUE,exercise.eval = TRUE}
+#install.packages("plot3D")
+library(plot3D)
+library(tidyverse)
+```
+
+```{r Challenge-hint}
+#Step1 data(iris) & head()
+#Step2 Define x,y, and z coordinates. For example, x<- sep.l <-iris$Sepal.Length
+#Step3 use scatter3D(x,y,z,clab = c("Sepal","Width(cm)"))
+```
+## Section 3.5.1 SD
+
+### 3.5.1 Easy SD
+
+*Here's a simple exercise with an empty code chunk provided for entering the answer.*
+
+First Let's try making facets for our mpg data. Use facet_wrap on any one categorical variable & facet_grid on any two categorical variable. Can you see the difference?
+```{r Facet, exercise=TRUE}
+library(tidyverse)
+```
+
+```{r Facet-solution}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) + 
+  facet_wrap(~ class, nrow = 2)
+  
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) + 
+  facet_grid(drv ~ cyl)
+```
+
+```{r Facet-check}
+gradethis::grade_this_code()
+```
+
+### 3.5.1 Intermediate SD
+
+*Where do we use geom_smooth? A linear model can be created on a scatterplot by using this which will be the 'best fit' line or a line average of all the points.*
+
+For the air quality dataset, given the scatterplot, find the 'best fit' line:
+
+```{r airquality, exercise=TRUE, exercise.eval=TRUE}
+library(tidyverse)
+airquality
+ggplot(data = airquality,aes(y=Wind,x=Temp))+geom_point()
+```
+
+```{r airquality-hint}
+geom_point()+geom_smooth()
+```
+```{r airquality-solution}
+airquality
+ggplot(data = airquality,aes(y=Wind,x=Temp))+geom_point()+geom_smooth()
+```
+
+```{r airquality-check}
+gradethis::grade_this_code()
+```
+
+### 3.5.1 Challenging  SD
+
+Let's do some visualization with the basic knowledge. Questions will be in steps:
+
+Step 1: Find the number of rows and columns of the dataset.
+
+Step 2: Find the table of manufacturers.
+
+Step 3: Make a bar chart to represent the number of manufacturers.
+
+```{r Step1, exercise=TRUE, exercise.eval=TRUE}
+
+```
+
+```{r Step1-hint1}
+# Use table() and then index the attribute you want to show ($)
+```
+
+```{r Step1-hint2}
+# geom can take point, smooth, bar etc.
+```
+
+```{r Step1-solution}
+nrows(mpg)
+ncols(mpg)
+table(mpg$manufacturer)
+qplot(manufacturer, data=mpg, geom="bar", fill=manufacturer) 
+```
+
+```{r step1-check}
+gradethis::grade_this_code()
+```
+
+
 
 ########################################
 ## Section 3.6.1 DN
@@ -338,6 +553,33 @@ question("Which of the geom that is for displaying the results with a non-standa
   answer("geom_bar"),
   answer("There is no answer here.")
 )
+```
+## Section 3.6.1 SD
+
+### 3.6.1 Easy SD
+
+*Labeling is important for both the analyst and for those who use those visualizations*
+
+Let's label the facets we made by putting lab() function
+```{r Labeling, exercise=TRUE}
+
+```
+
+```{r Labeling-hint}
+# Use labs()
+```
+
+```{r Labeling-solution}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) + 
+  facet_wrap(~ class, nrow = 2)
+labs(
+  title = "Facet wrap",
+)
+```
+
+```{r Labeling-check}
+gradethis::grade_this_code()
 ```
 
 
@@ -606,6 +848,95 @@ question("According to the text, which kind of graph compute a robust summary of
   answer("spider chart")
 )
 ```
+### 3.6.1 Intermediate SD
+
+#### BLANK
+
+### 3.6.1 Challenging  SD
+
+#### BLANK
+
+####################################################################
+
+
+## Section 3.7.1 SD
+
+### 3.7.1 Easy SD
+
+```{r quiz1}
+question("Which of the geom that is for displaying the results with a non-standard geom",
+  answer("geom_smooth", correct = TRUE),
+  answer("geom_point"),
+  answer("geom_bar"),
+  answer("There is no answer here.")
+)
+```
+```{r quiz1-check}
+gradethis::grade_this_code()
+```
+
+
+```{r quiz2}
+quiz(
+  question(" ________ function is similar to the existing subset() function in R but is quite a bit faster.",
+    answer("rename"),
+    answer("set"),
+    answer("filter", correct = TRUE),
+    answer("subset")
+  )
+)
+```
+```{r quiz2-check}
+gradethis::grade_this_code()
+```
+
+
+```{r quiz3}
+quiz(
+  question(" Columns can be arranged in descending order too by using the special ____ operator.",
+    answer("asc()"),
+    answer("desc()", correct = TRUE),
+    answer("descending()"),
+    answer("subset")
+  )
+)
+```
+```{r quiz3-check}
+gradethis::grade_this_code()
+```
+*we will be using the nycflights database in these exercises*
+
+```{r quiz4}
+quiz(
+  question(" The ______ operator allows you to string operations in a left-to-right fashion.",
+    answer("This %<%"),
+    answer("This %%%"),
+    answer("This %>%", correct = TRUE),
+    answer("This >%>%")
+  )
+)
+```
+
+```{r quiz4-check}
+gradethis::grade_this_code()
+```
+
+```{r quiz5}
+quiz(
+  question(" Which of the following return a subset of the columns of a data frame?",
+    answer("get"),
+    answer("select", correct = TRUE),
+    answer("set"),
+    answer("retrieve")
+  )
+)
+```
+
+```{r quiz5-check}
+gradethis::grade_this_code()
+```
+
+
 ### 3.7.1 Intermediate YY
 #### Exercise 3
 
@@ -659,6 +990,24 @@ ggplot(data = diamonds) +
 gradethis::grade_code()
 ```
 
+### 3.7.1 Challenging  SD
+
+*Let's discover multiplot Can we draw it using R?*
+
+For iris dataset, form a multiplot. Should we use facet_wrap? or facet_grid? Try to run the code and check.
+
+```{r Multiplotgrid, exercise=TRUE}
+#Facet_grid
+library(tidyverse)
+iris
+ggplot(data = iris,aes(x=Sepal.Length))+geom_histogram(binwidth = 0.1) + facet_grid(Species~.)
+```
+
+```{r multiplotwrap, exercise = TRUE}
+library(tidyverse)
+iris
+ggplot(data = iris,aes(x=Sepal.Length))+geom_histogram(binwidth = 0.1) + facet_wrap(~Species)
+```
 
 
 ## Section 5.2.4 DN
@@ -727,6 +1076,33 @@ gradethis::grade_code()
 ```
 
 
+## Section 5.2.4 SD
+
+### 5.2.4 Easy SD
+
+First add arr_delay and dep_delay. Rename it as delay. Find mean delay and remove NAs from the delay using na.rm.
+
+
+```{r q, exercise=TRUE}
+
+```
+
+```{r q-hint}
+summarise(mean_delay = mean(delay,na.rm = TRUE))
+```
+
+```{r q-solution}
+flights$delay <- flights$arr_delay + flights$dep_delay
+summarise(flights, mean_delay = mean(delay, na.rm = TRUE))
+```
+
+```{r q-check}
+gradethis::grade_this_code()
+```
+
+
+
+
 ### Intermediate 5.2.4 DN  
 
 #### Exercise 16 DN  
@@ -788,6 +1164,35 @@ gradethis::grade_code()
 ```
 
 
+
+### 5.2.4 Intermediate SD
+
+*These questions will be in parts *
+Part1: Arrange flights in the order of year, month and day
+Part2: Filter Delta flights departed in the month of November and December (carrier is DL)
+How many rows are there now?
+
+```{r flights_e, exercise=TRUE, exercise.eval=TRUE}
+?flights
+```
+
+```{r flights_e-hint}
+# arrange(), inside the braket there could be flights, year, month and day
+# filter(flights, month %in% c(11, 12) & carrier == "DL")
+nrow(filter(flights, month %in% c(11, 12) & carrier == "DL"))
+```
+
+```{r flights_e-solution}
+arrange(flights,year, month, day)
+filter(flights, month %in% c(11, 12) & carrier == "DL")
+nrow(filter(flights, month %in% c(11, 12) & carrier == "DL"))
+```
+
+```{r flights_e-check}
+gradethis::grade_this_code()
+```
+
+
 ### Advanced 5.2.4 DN  
 
 #### Exercise 25 DN  
@@ -844,6 +1249,21 @@ filter(flights, !(arr_delay <= 60 | dep_delay <= 60))
 ```
 ```{r 552-check}
 gradethis::grade_code()
+```
+### 5.2.4 Challenging  SD
+
+Missing data in the flights dataset would suggest the flight being cancelled so we would prefer to remove those. Remove all the rows if there is NA in arr_delay and dep_delay.
+
+```{r Remove_miss, exercise=TRUE, exercise.eval=TRUE}
+
+```
+
+```{r Remove_miss-solution}
+flights %>% filter(!is.na(arr_delay) & !is.na(dep_delay))
+```
+
+```{r Remove_miss-check}
+gradethis::grade_this_code()
 ```
 
 
@@ -922,6 +1342,20 @@ arrange(flights, desc(dep_delay))
 gradethis::grade_code()
 ```
 
+## Section 5.3.1 SD
+
+### 5.3.1 Easy SD
+
+```{r quiz_e}
+quiz(
+  question(" Columns can be arranged in descending order too by using the special ____ operator.",
+    answer("asc()"),
+    answer("desc()", correct = TRUE),
+    answer("descending()"),
+    answer("subset")
+  )
+)
+```
 
 
 
@@ -1011,6 +1445,29 @@ question("Missing values are always sorted at where? ",
 ```
 
 
+### 5.3.1 Intermediate SD
+
+Make a new variable called delay which will be the total delay from departure to arrival.
+
+```{r delay, exercise=TRUE, exercise.eval=TRUE}
+library(tidyverse)
+library(nycflights13)
+flights
+```
+
+```{r delay-hint}
+flights$delay <- flights$arr_delay + flights$dep_delay
+```
+
+```{r delay-solution}
+flights$delay <- flights$arr_delay + flights$dep_delay
+```
+
+```{r delay-check}
+gradethis::grade_this_code()
+```
+
+
 
 
 ### Advanced 5.3.1 DN
@@ -1063,6 +1520,27 @@ Sort flights to find the most delayed flights. (No hint)
 
 ```{r 553, exercise=TRUE, exercise.eval=TRUE}
 
+```
+
+
+### 5.3.1 Challenging  SD
+
+Missing data in the flights dataset would suggest the flight being cancelled so we would prefer to remove those. Remove all the rows if there is NA in arr_delay and dep_delay.
+
+```{r Remove_missing, exercise=TRUE, exercise.eval=TRUE}
+
+```
+
+```{r Remove_missing-hint}
+# is.na shows missing whereas !is.na shows not missing
+```
+
+```{r Remove_missing-solution}
+flights %>% filter(!is.na(arr_delay) & !is.na(dep_delay))
+```
+
+```{r Remove_missing-check}
+gradethis::grade_this_code()
 ```
 
 
@@ -1130,6 +1608,25 @@ Run ?select() to learn it.
 ```
 
 
+
+## Section 5.4.1 SD
+
+### 5.4.1 Easy SD
+
+```{r quiz541sd}
+quiz(
+  question(" The ______ operator allows you to string operations in a left-to-right fashion.",
+    answer("This %<%"),
+    answer("This %%%"),
+    answer("This %>%", correct = TRUE),
+    answer("This >%>%")
+  )
+)
+```
+
+
+
+
 ### Intermediate 5.4.1 DN  
 
 #### Exercise 19 DN 
@@ -1177,6 +1674,26 @@ Select one column on the "flights"
 ```{r 554-hint-1}
 "use select()"
 ```
+
+### 5.4.1 Intermediate SD
+
+In the previous question, we made a new variable called delay. Now let's arrange the delay in descending order.
+```{r arrange, exercise=TRUE, exercise.eval=TRUE}
+flights
+```
+
+```{r arrange-hint}
+arrange(flights, desc(delay))
+```
+
+```{r arrange-solution}
+arrange(flights, desc(delay))
+```
+
+```{r arrange-check}
+gradethis::grade_this_code()
+```
+
 
 
 
@@ -1235,6 +1752,16 @@ The argument of each function must be one alphabet.
 ```{r 5545-hint-1}
 "use ? if you are not sure about these parameter(function)"
 ```
+
+### 5.4.1 Challenging  SD
+
+Find the 5 shortest distance travelled and 5 shortest time taken.
+
+```{r question, exercise=TRUE, exercise.eval=TRUE}
+flights
+```
+
+
 
 
 ########################################################
@@ -1304,6 +1831,15 @@ question("If x <- 2:7, what is lag(x)?",
 )
 ```
 
+## Section 5.5.2  SD
+
+### 5.5.2  Easy SD
+
+Let's make a new variable called speed using the mutate function.
+(Speed = Distance/ Time)
+```{r speed,exercise=TRUE, exercise.eval=TRUE}
+
+```
 
 
 ### Intermediate 5.5.2 DN
@@ -1391,6 +1927,29 @@ question("transmute",
   answer("do nothing")
 )
 ```
+### 5.5.2  Intermediate SD
+
+*These questions will be in parts *
+Part1: Make a new variable called delay which will be the total delay from departure to arrival.
+Part2: Since we donot want some variables like arr_time, dep_time etc., let's drop it.
+
+```{r flights, exercise=TRUE, exercise.eval=TRUE}
+?flights
+```
+
+```{r flights-hint}
+library(tidyverse)
+library(nycflights13)
+# select() everything except arr_delay,dep_delay by putting a - before the vector
+```
+```{r flights-solution}
+flights$delay <- flights$arr_delay + flights$dep_delay
+select(flights, -c(arr_delay,dep_delay))
+```
+
+```{r flights-check}
+gradethis::grade_this_code()
+```
 
 
 ### Advanced 5.5.2 DN  
@@ -1455,6 +2014,17 @@ Then, create new variable that represents cumulative sum of  distance.
 "Use arrange() to order the dataframe"
 ```
 
+### 5.5.2  Challenging  SD
+
+Now that we got the total delay, let's try to find if there is any relation between the distance travelled and delay. If there is any relation then analyze the case for each flight (carrier) using facet.
+
+<img src="C:\Users\hp\Documents\Test Project\seminar class\LearningRepository\Hadley_Exercises\Hadley4rDS_Section5.3\graph.png">
+
+
+```{r arrange_delay, exercise=TRUE, exercise.eval=TRUE}
+flights
+```
+
 
 
 
@@ -1507,6 +2077,34 @@ In this execise, we will use sumarize(). Run the code below to leanrn summrize()
 ```{r 1, exercise=TRUE, exercise.eval=TRUE}
 ?summarise()
 ```
+
+## Section 5.6.7  SD
+
+### 5.6.7  Easy SD
+
+*we will be using the nycflights database in these exercises*
+
+In the flights dataset, correct the following code so as to find the flights departed in March and April (why is it wrong?): 
+
+```{r Correct_the_code, exercise=TRUE}
+library(nycflights13)
+library(tidyverse)
+filter(flights, month == (3 |4 ))
+```
+
+```{r Correct_the_code-hint}
+# Use infix or match operator (%in% or month == 3| month == 4)
+# For this answer just use the other one
+```
+```{r Correct_the_code-solution}
+filter(flights, month == 3| month == 4)
+```
+
+```{r Correct_the_code-check}
+gradethis::grade_this_code()
+```
+
+
 
 
 ### Intermediate 5.6.7 DN  
@@ -1571,6 +2169,45 @@ question("summarise() need another function to be available. what is it?",
 )
 ```
 
+### 5.6.7  Intermediate SD
+
+Question is in parts.
+Part 1: Filter the Delta flights ("DL") for the month November and December.
+Part 2: Assign it a new variable name.
+Part 3: Find how many hours and minutes was the air time.
+
+```{r ranking, exercise=TRUE, exercise.eval=TRUE}
+library(tidyverse)
+library(nycflights13)
+flights
+```
+
+```{r ranking-hint1}
+# First filter DL flights in only the last month using filter(). Don't forget to use infix %in%
+# Save it to filtered_data
+# Then use transmute() where hour = air_time %/% 60 and minute is air_time - hour*60
+```
+
+```{r ranking-hint2}
+transmute(flights,
+  air_time,
+  hour = air_time %/% 60,
+  minute = air_time - hour*60
+)
+```
+
+```{r ranking-solution}
+filtered_data <- filter(flights, month %in% c(11, 12) & carrier == "DL")
+transmute(flights,
+  air_time,
+  hour = air_time %/% 60,
+  minute = air_time - hour*60
+)
+```
+
+```{r ranking-check}
+gradethis::grade_this_code()
+```
 
 
 ### Advanced 5.6.7 DN  
@@ -1662,6 +2299,76 @@ not_cancelled %>%
 ```
 ```{r 556-check}
 gradethis::grade_code()
+```
+
+
+### 5.6.7  Challenging  SD
+
+Let's remove all the time variables. Can we use any_of to do the same?
+
+```{r Remove, exercise=TRUE, exercise.eval=TRUE}
+
+```
+
+```{r Remove-hint}
+select(flights, -contains("time"))
+```
+
+```{r Remove-solution}
+flights
+select(flights, -contains("time"))
+```
+
+```{r Remove-check}
+gradethis::grade_this_code()
+```
+### 5.7.1   Intermediate SD
+
+Find the mean delay of flights given that arr_delay > 30 minutes and find the carrier with the highest delay.
+
+
+```{r print-limit_s, exercise=TRUE, exercise.eval=TRUE}
+
+```
+
+```{r print-limit_s-hint}
+flights %>%
+	filter(arr_delay > 30) %>%
+	group_by(carrier) %>%
+	summarise(mean_delay = mean(arr_delay)) %>%
+  arrange(desc(mean_delay))
+```
+
+```{r print-limit_s-solution}
+flights %>%
+	filter(arr_delay > 30) %>%
+	group_by(carrier) %>%
+	summarise(mean_delay = mean(arr_delay)) %>%
+  arrange(desc(mean_delay))
+```
+
+```{r print-limit_s-check}
+gradethis::grade_this_code()
+```
+
+### 5.7.1   Challenging  SD
+
+Using flights data, group data by carrier and summarize the data by arr_delay. Finally, plot the summary statistics.
+
+```{r summary_stats, exercise=TRUE, exercise.eval=TRUE}
+flights
+```
+
+```{r summary_stats-hint, exercise=TRUE, exercise.eval=TRUE}
+flights %>% group_by(carrier) %>% summarise(mean_ardelay = mean(arr_delay,na.rm = TRUE)) %>% ggplot(aes(x=carrier, y = mean_ardelay, fill = carrier)) + geom_bar(stat = "identity") + theme_classic()
+```
+
+```{r summary_stats-solution}
+flights %>% group_by(carrier) %>% summarise(mean_ardelay = mean(arr_delay,na.rm = TRUE)) %>% ggplot(aes(x=carrier, y = mean_ardelay, fill = carrier)) + geom_bar(stat = "identity") + theme_classic()
+```
+
+```{r summary_stats-check}
+gradethis::grade_this_code()
 ```
 
 
