@@ -265,17 +265,17 @@ gradethis:: grade_code()
 
 ### 3.3.1 Intermediate SD
 
-*You can include any number of single or multiple choice questions as a quiz. Use the `question` function to define a question and the `quiz` function for grouping multiple questions together.*
+
 
 Question to verify that one has understood the basics of ggplot:
 
 ```{r quiz7}
 quiz(
   question("Which of the following modifies a ggplot or theme object by adding on new components?",
-    answer("+.gg",correct = TRUE),
-    answer("-.gg"),
-    answer("/.gg"),
-    answer(".gg")
+    answer("+",correct = TRUE),
+    answer("-"),
+    answer("/"),
+    answer(".")
   )
 )
 ```
