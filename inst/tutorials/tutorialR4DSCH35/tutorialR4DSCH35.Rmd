@@ -273,16 +273,13 @@ Question to verify that one has understood the basics of ggplot:
 quiz(
   question("Which of the following modifies a ggplot or theme object by adding on new components?",
     answer("+",correct = TRUE),
-    answer("-"),
+    answer("*"),
     answer("/"),
     answer(".")
   )
 )
 ```
 
-```{r quiz7-check}
-gradethis::grade_this_code()
-```
 
 ```{r quiz8}
 quiz(
