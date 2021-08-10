@@ -242,7 +242,7 @@ gradethis:: grade_code()
 <!-- ![picture](images/Rplot23.png) -->
 <img src="images/Rplot23.png" alt="drawing" style="width:400px;"/>
 
-complete the code to create the above graph
+Although using size for a discrete variable is not advised, nevertheless, complete the code to create the above graph
 
 ```{r two-plus-five, exercise=TRUE}
 
