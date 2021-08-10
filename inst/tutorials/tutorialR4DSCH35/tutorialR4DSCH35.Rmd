@@ -39,10 +39,10 @@ ggplot(data = ) +
 Modify the following code so that the legends of the aesthetics is not shown:
 
 ```{r print-limit, exercise=TRUE, exercise.eval=TRUE}
-# Horizontal Legend box
-#library(tidyverse)
+
 x <- ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy, color = class))
+print(x)
 ```
 
 ```{r print-limit-hint}
@@ -51,7 +51,7 @@ use the show.legend parameter of the geo_point() function.
 
 ```{r print-limit-solution}
 x <- ggplot(data = mpg) + 
-  geom_point(mapping = aes(x = displ, y = hwy, color = class,), show.legends = FALSE)
+  geom_point(mapping = aes(x = displ, y = hwy, color = class),show.legend = FALSE)
 print(x)
 ```
 
@@ -69,7 +69,7 @@ gradethis::grade_this_code()
 Write the R code for putting mpg dataset into a mpg dataframe
 
 ```{r D1, exercise=TRUE}
-
+mpg<- data.frame()
 ```
 
 ```{r D1-solution, include=FALSE}
@@ -82,9 +82,12 @@ gradethis::grade_this_code()
 
 #### Exercise 2 DN
 
-Write the R code for Viewing the mpg dataframe
+Write the R code for Viewing the mpg tibble
 ```{r D2, exercise=TRUE}
 
+```
+```{r D2-hint}
+"use the View() function"
 ```
 
 ```{r D2-solution}
@@ -95,14 +98,12 @@ View(mpg)
 gradethis::grade_this_code()
 ```
 
-### 3.2.4 EASY WC
-####  BLANK
 
 ## section 3.3.1 KA
 
 ### 3.3.1 Easy KA
 
-write the code that will load tidyverse:
+Write the code that will load tidyverse:
 
 ```{r 22K, exercise=TRUE}
 
@@ -124,7 +125,7 @@ gradethis::grade_code()
 
 ### 3.3.1 Easy KA
 
-if you want learn more about the variables in mpg which code should you run
+If you want to learn more about the mpg tibble what code could you run?
 
 ```{r two-plus-three, exercise=TRUE}
 
@@ -147,24 +148,22 @@ gradethis:: grade_code()
 
 ### 3.3.1 Easy SD
 
-*Here's an exercise in which you are supposed to ammend the code so that it doesn't show error*
 
-Correct the code and change the color aesthetics to alpha aesthetics mapping it with class attribute:
+Edit the code by changing the color aesthetics to alpha aesthetics, mapping it to the class attribute:
 **HINT**: *print x to view the graph*
 
 ```{r add-function, exercise=TRUE, exercise.lines = 5}
-library(tidyverse)
-x <- ggplot(data = mpg) 
-+ geom_point(mapping = aes(x = displ, y = hwy, color = red)) 
+x <- ggplot(data = mpg) + geom_point(mapping = aes(x = displ, y = hwy, color = red)) 
+print()
 ```
 
 ```{r add-function-hint}
- # mark the position of '+'
+ # alpha is a characteristic of the geometric element and determines the opacity.
 ```
 
 ```{r add-function-solution}
-library(tidyverse)
 x <- ggplot(data = mpg) + geom_point(mapping = aes(x = displ, y = hwy, alpha = class)) 
+print(x)
 ```
 
 ```{r add-function-check}
@@ -176,12 +175,11 @@ gradethis::grade_this_code()
 ###  3.3.1 Intermediate DN
 
 #### Exercise 12 DN
-Refer to mpg data set.  
+Refer to the mpg data set.  
 
 Plot a geom_point graph with displ on x-axis, hwy on y-axis, and map the shape of points to drv
 ```{r D12, exercise=TRUE}
-ggplot(    ) + 
-  geom_point(    )
+ggplot(    ) + geom_point(    )
 ```
 
 ```{r D12-hint}
@@ -189,8 +187,7 @@ ggplot(    ) +
 ```
 
 ```{r D12-solution}
-ggplot(data = mpg) + 
-  geom_point(mapping = aes(x = displ, y = hwy, shape= drv))
+ggplot(data = mpg) + geom_point(mapping = aes(x = displ, y = hwy, shape= drv))
 ```
 
 ```{r D12-check}
