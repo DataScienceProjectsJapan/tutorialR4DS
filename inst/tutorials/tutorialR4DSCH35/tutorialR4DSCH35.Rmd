@@ -16,7 +16,7 @@ library(nycflights13)
 
 ### 3.2.4 Easy SD
 
-*Here's a simple exercise with an blank space provided for entering the answer.*
+ 
 
 After installing Tidyverse package, given the mpg dataset, plot a scatterplot between any two continuous variable. If you don't recall the variables you can type "?mpg" (without the quotation marks) or use colnames(mpg)
 
@@ -405,13 +405,13 @@ ggplot(data = mpg) +
 
 ### 3.5.1 Intermediate SD
 
-*Where do we use geom_smooth? A linear model can be created on a scatterplot by using this which will be the 'best fit' line or a line average of all the points.*
+*Where do we use geom_smooth? A linear model can be created on a scatterplot by using this technique which will deliver the 'best fit' line or a line average of all the points.*
 
-For the air quality dataset, given the scatterplot, find the 'best fit' line:
+For the airquality dataset, given the scatterplot, find the 'best fit' line:
 
 ```{r airquality, exercise=TRUE, exercise.eval=TRUE}
 library(tidyverse)
-airquality
+
 ggplot(data = airquality,aes(y=Wind,x=Temp))+geom_point()
 ```
 
@@ -419,7 +419,6 @@ ggplot(data = airquality,aes(y=Wind,x=Temp))+geom_point()
 geom_point()+geom_smooth()
 ```
 ```{r airquality-solution}
-airquality
 ggplot(data = airquality,aes(y=Wind,x=Temp))+geom_point()+geom_smooth()
 ```
 
