@@ -292,10 +292,6 @@ quiz(
 )
 ```
 
-```{r quiz8-check}
-gradethis::grade_this_code()
-```
-
 
 
 
@@ -303,13 +299,13 @@ gradethis::grade_this_code()
 
 #### Exercise 23 DN
 
-Divide mpg dataframe into 2 half and plot 2 separate geom_point graphs respectively with displ on x-axis and hwy on y-axis  
-**HINT**:"spliting the mpg dataframe requires floor(), set.seed(), sample(), seq_len()"
+Divide mpg dataframe into 2 halves and plot 2 separate geom_point graphs  with displ on x-axis and hwy on y-axis  respectively.
+**Note**:"spliting the mpg dataframe requires floor(), set.seed(), sample(), seq(). You many want to get help on this functions first". Also, note we are getting a random sample for each of the 2 halves.
 
 ```{r D23, exercise=TRUE}
 half_size <- floor(0.5*  )
 set.seed(123123)
-mpg_half <- sample(seq_len(   ), size= half_size)
+mpg_half <- sample(seq(   ), size= half_size)
 
 mpg_1 <- mpg[mpg_half, ]
 mpg_2 <- mpg[-mpg_half, ]
@@ -323,7 +319,7 @@ ggplot(data=mpg_2) +
 ```{r D23-solution}
 half_size <- floor(0.5*nrow(mpg))
 set.seed(123123)
-mpg_half <- sample(seq_len(nrow(mpg)),size= half_size)
+mpg_half <- sample(seq(nrow(mpg)),size= half_size)
 
 mpg_1 <- mpg[mpg_half, ]
 mpg_2 <- mpg[-mpg_half, ]
@@ -365,24 +361,34 @@ gradethis:: grade_code()
 Make a 3D scatterplot to analyse the relation between sepal length, sepal width and petal length.
 ```{r Challenge, exercise=TRUE,exercise.eval = TRUE}
 #install.packages("plot3D")
-library(plot3D)
-library(tidyverse)
+library(plot3D);library(tidyverse)
 ```
 
 ```{r Challenge-hint}
-#Step1 data(iris) & head()
-#Step2 Define x,y, and z coordinates. For example, x<- sep.l <-iris$Sepal.Length
+#Step1 run data("iris") & head(iris)
+#Step2 Define x,y, and z coordinates. For example, x<-iris$Sepal.Length
 #Step3 use scatter3D(x,y,z,clab = c("Sepal","Width(cm)"))
+#See this link for more info: https://preludeinr.com/graphs-and-plots/fancy-a-little-bit-of-3d/
 ```
 ## Section 3.5.1 SD
 
 ### 3.5.1 Easy SD
 
-*Here's a simple exercise with an empty code chunk provided for entering the answer.*
 
-First Let's try making facets for our mpg data. Use facet_wrap on any one categorical variable & facet_grid on any two categorical variable. Can you see the difference?
+Let's try making facets for our mpg data and displ as x and hwy as y. Use facet_wrap() on any one categorical variable & facet_grid() on any two categorical variables. Can you see the difference?
 ```{r Facet, exercise=TRUE}
-library(tidyverse)
+ggplot(data=)+geom_point()+
+  
+ggplot(data=)+geom_point()+  
+  
+```
+
+```{r Facet-hint-1}
+"the first argument of facet_wrap() is a tilda followed by the categorical variable "
+"remember a tilda looks like this: ~"
+```
+```{r Facet-hint-2}
+"the argument of facet_grid() has two variables separated by a tilda "
 ```
 
 ```{r Facet-solution}
@@ -395,9 +401,7 @@ ggplot(data = mpg) +
   facet_grid(drv ~ cyl)
 ```
 
-```{r Facet-check}
-gradethis::grade_this_code()
-```
+
 
 ### 3.5.1 Intermediate SD
 
