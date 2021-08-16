@@ -680,7 +680,7 @@ gradethis:: grade_code()
 ```
 In the above graph make it clearer as to that each line represents a different value for the drv variable by distinguishing each line with a different color as is done here:
 
-```{r two-plus-nine2}
+```{r two-plus-nine2view}
 ggplot(data = mpg) + geom_smooth(mapping = aes(x = displ, y = hwy,linetype = drv, color=drv))
 ```
 
@@ -731,7 +731,7 @@ gradethis::grade_code()
 ### 3.6.1 Intermediate YY
 #### Exercise 3
 
-Change the variable that is assigned to linetype to "cyl" and predict what will be created before run the code.
+Change the variable that is assigned to linetype to "cyl" and predict what will be created before run the code. Below you can see the results of the current code.
 ```{r 336, exercise=TRUE, exercise.eval=TRUE}
 ggplot(data = mpg) + 
   geom_smooth(mapping = aes(x = displ, y = hwy, linetype = drv))
@@ -747,15 +747,14 @@ ggplot(data = mpg) +
 gradethis::grade_code()
 ```
 #### Exercise 4
-Add codes and  make it run.
+Add the minimum code to allow this to run using displ for x and hwy for y
 
-```{r 436, exercise=TRUE, exercise.eval=TRUE}
+```{r 436, exercise=TRUE}
 ggplot() + 
   geom_smooth()
 ```
 ```{r 436-hint-1}
-"Function that couse error is what we read in chapter 3.5.
-Remember what you learned. "
+"The function that causes the error was covered in section 3.5."
 ```
 ```{r 436-solution}
 ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + 
@@ -774,7 +773,15 @@ gradethis::grade_code()
 
 Refer to the mpg dataset.  
 
-Write the R code to plot 1 geom_point graph and 1 geom_smooth graph, with color=class, excluding all 2seater cars  
+Recall that 2-seater cars were somewhat of an anomoly with regard to the relationship between displacement and highway mileage. Write the R code to plot a geom_point graph together with geom_smooth graph, with color=class, excluding all 2seater cars  to generate this graph.
+
+
+```{r D24view}
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + 
+   geom_point(data = filter(mpg, class != "2seater"), mapping = aes(color = class)) + 
+   geom_smooth(data = filter(mpg, class != "2seater"), se= FALSE)
+```
+
 
 ```{r D24, exercise=TRUE}
 ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + 
@@ -783,7 +790,7 @@ ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
 ```
 
 ```{r D24-hint}
-"Remind yourself how you utilized filter() function earlier "
+"Recall how filter() was utilized earlier "
 ```
 
 ```{r D24-solution}
