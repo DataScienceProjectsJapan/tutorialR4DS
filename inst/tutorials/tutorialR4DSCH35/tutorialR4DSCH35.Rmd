@@ -498,10 +498,10 @@ quiz(
 
 ### Easy 3.6.1 KA
 ```{r quiz1a}
-question("which is geom?",
-  answer("A geom is the geometrical object that a plot uses to represent data", correct = TRUE),
-  answer("is a german car"),
-  answer("is a programing language")
+question("which best describes what a geom is?",
+  answer("tells the plot how to display the data, for example as points, bars, line(s)", correct = TRUE),
+  answer("tells the plot the the colors, sizes, and shapes to use "),
+  answer("focuses on how individual elements of data are displayed")
 )
 ```
 
@@ -531,24 +531,24 @@ gradethis:: grade_code()
 
 
 #### 3.6.1 Easy YY
-Change the number of nrow in the code below and run the code to understand what nrow means.
+Change the number of nrow in the code below and run the code to understand what the meaning of nrow is.
 ```{r 136, exercise=TRUE, exercise.eval=TRUE}
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy)) + 
   facet_wrap(~ class, nrow = 2)
 ```
 ```{r 136-hint-1}
-"nrow means numbr of the row "
+"nrow means number of the rows "
 ```
 
 #### Exercise 2  
 
 ```{r quiz236}
-question("Which of the geom that is for displaying the results with a non-standard geom",
-  answer("geom_smooth", correct = TRUE),
-  answer("geom_point"),
-  answer("geom_bar"),
-  answer("There is no answer here.")
+question("What does geom_smooth do?",
+  answer("Eliminates jitter in the data"),
+  answer("Aids the eye in seeing a pattern in the data", correct = TRUE),
+  answer("Reverses the x and y axes"),
+  answer("None of these")
 )
 ```
 ## Section 3.6.1 SD
@@ -557,9 +557,11 @@ question("Which of the geom that is for displaying the results with a non-standa
 
 *Labeling is important for both the analyst and for those who use those visualizations*
 
-Let's label the facets we made by putting lab() function
+Let's label the facets we made by adding a title of "Facet wrap" with the lab() function
 ```{r Labeling, exercise=TRUE}
-
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) + 
+  facet_wrap(~ class, nrow = 2)
 ```
 
 ```{r Labeling-hint}
@@ -585,21 +587,21 @@ gradethis::grade_this_code()
 
 #### Exercise 14 DN
 
-Recreate the R code necessary to generate the following graphs
+In spite of the fact that the graph below may actually obscure the relationship between the displ and hwy, as an exercise recreate the R code necessary to generate the following graph.
 ```{r D14-graph}
 ggplot(data=mpg, mapping = aes(x= displ, y= hwy)) +
   geom_point() +
   geom_line()
 ```
 
+
 ```{r D14, exercise=TRUE}
-ggplot(data=mpg, mapping = aes(   ,   )) +
-  geom_point() +
-  geom_line()
+ggplot(data=mpg, mapping = aes(x= displ, y= hwy )) 
+  
 ```
 
 ```{r D14-hint}
-"You would need 2 geom graphs"
+"You will need 2 geom elements"
 ```
 
 ```{r D14-solution}
@@ -611,6 +613,15 @@ ggplot(data=mpg, mapping = aes(x= displ, y= hwy)) +
 ```{r D14-check}
 gradethis::grade_this_code()
 ```
+```{r quiz361DN}
+question("Instead of connecting every point as was shown above, what might better show the relationship between the two variables displ and hwy?",
+  answer("Replace the dots with bars (using geom_bar())"),
+  answer("add color to aes() to reflect the manufacturer"),
+  answer("Add in a geom_smooth()", correct = TRUE),
+  answer("None of these")
+)
+```
+
 
 #### Exercise 15 DN
 
