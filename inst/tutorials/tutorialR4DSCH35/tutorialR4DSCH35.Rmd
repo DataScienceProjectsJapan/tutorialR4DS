@@ -426,38 +426,42 @@ ggplot(data = airquality,aes(y=Wind,x=Temp))+geom_point()+geom_smooth()
 gradethis::grade_this_code()
 ```
 
-### 3.5.1 Challenging  SD
+<!-- ### 3.5.1 Challenging  SD -->
 
-Let's do some visualization with the basic knowledge. Questions will be in steps:
+<!-- Let's do some visualization with the basic knowledge. We are working with the mpg dataset. Questions will be in steps: -->
 
-Step 1: Find the number of rows and columns of the dataset.
+<!-- Step 1: Find the number of rows and columns of the dataset. -->
 
-Step 2: Find the table of manufacturers.
+<!-- Step 2: Find the table of manufacturers. You want to show each how many instances (rows) in our dataset are there for each possible manufacturer. It would look something like this: -->
 
-Step 3: Make a bar chart to represent the number of manufacturers.
+<!-- <!-- ![picture](images/351SDChalleng.JPG) --> -->
+<!-- <img src="images/351SDChalleng.JPG" alt="drawing" style="width:400px;"/> -->
 
-```{r Step1, exercise=TRUE, exercise.eval=TRUE}
 
-```
+<!-- Step 3: Make a bar chart to represent the number of manufacturers. -->
 
-```{r Step1-hint1}
-# Use table() and then index the attribute you want to show ($)
-```
+<!-- ```{r Step1, exercise=TRUE, exercise.eval=TRUE} -->
 
-```{r Step1-hint2}
-# geom can take point, smooth, bar etc.
-```
+<!-- ``` -->
 
-```{r Step1-solution}
-nrows(mpg)
-ncols(mpg)
-table(mpg$manufacturer)
-qplot(manufacturer, data=mpg, geom="bar", fill=manufacturer) 
-```
+<!-- ```{r Step1-hint1} -->
+<!-- # Use table() and then index the attribute you want to show ($) -->
+<!-- ``` -->
 
-```{r step1-check}
-gradethis::grade_this_code()
-```
+<!-- ```{r Step1-hint2} -->
+<!-- # geom can take point, smooth, bar etc. -->
+<!-- ``` -->
+
+<!-- ```{r Step1-solution} -->
+<!-- nrow(mpg) -->
+<!-- ncol(mpg) -->
+<!-- table(mpg$manufacturer) -->
+<!-- qplot(manufacturer, data=mpg, geom="bar", fill=manufacturer) -->
+<!-- ``` -->
+
+<!-- # ```{r step1-check} -->
+<!-- # gradethis::grade_this_code() -->
+<!-- # ``` -->
 
 
 
