@@ -12,6 +12,8 @@ knitr::opts_chunk$set(echo = FALSE)
 library(tidyverse)
 library(nycflights13)
 ```
+
+# This tutorial was written by students at Ritsumeikan Asia Pacific University in Japan as part of a collaborative project.
 ## Section 3.2.4 SD
 
 ### 3.2.4 Easy SD
@@ -678,7 +680,7 @@ ggplot(data = mpg) +
 gradethis:: grade_code()
 
 ```
-In the above graph make it clearer as to that each line represents a different value for the drv variable by distinguishing each line with a different color as is done here:
+In the above graph, make it clearer that each line represents a different value for the drv variable by distinguishing each line with a different color as is done here:
 
 ```{r two-plus-nine2view}
 ggplot(data = mpg) + geom_smooth(mapping = aes(x = displ, y = hwy,linetype = drv, color=drv))
