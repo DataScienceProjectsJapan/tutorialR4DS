@@ -13,7 +13,7 @@ library(tidyverse)
 library(nycflights13)
 ```
 
-# This tutorial was written by students at Ritsumeikan Asia Pacific University in Japan as part of a collaborative project.
+#### This tutorial was written by students at Ritsumeikan Asia Pacific University in Japan as part of a collaborative project.
 ## Section 3.2.4 SD
 
 ### 3.2.4 Easy SD
@@ -775,7 +775,7 @@ gradethis::grade_code()
 
 Refer to the mpg dataset.  
 
-Recall that 2-seater cars were somewhat of an anomoly with regard to the relationship between displacement and highway mileage. Write the R code to plot a geom_point graph together with geom_smooth graph, with color=class, excluding all 2seater cars  to generate this graph.
+Recall that 2-seater cars were somewhat of an anomoly with regard to the relationship between displacement and highway mileage. Write the R code to plot a geom_point graph together with geom_smooth graph, with color=class, excluding all 2seater cars  to generate this graph. Note you will need to use the filter() function.
 
 
 ```{r D24view}
@@ -792,7 +792,7 @@ ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
 ```
 
 ```{r D24-hint}
-"Recall how filter() was utilized earlier "
+"Actually you need to use the filter() function twice. Try just using it once then see if you can see where the second occurance should be. What happens when you only use it once?"
 ```
 
 ```{r D24-solution}
@@ -807,9 +807,11 @@ gradethis::grade_this_code()
 
 ### 3.6.1 Challenging KA
 
-<!-- ![picture](images/Rplot31.png) -->
-<img src="images/Rplot31.png" alt="drawing" style="width:400px;"/>
-
+<!-- <!-- ![picture](images/Rplot31.png) --> -->
+<!-- <img src="images/Rplot31.png" alt="drawing" style="width:400px;"/> -->
+```{r 361ChalKA}
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + geom_point(mapping = aes(color = class)) + geom_smooth(data =mpg) 
+```
 finish the code to create the above graph
 
 ```{r two-plus-zero, exercise=TRUE}
@@ -818,20 +820,25 @@ ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
   geom_smooth(
 ```
 
-```{r two-plus-zero-hint-1}
-"you have to use the filter()"
 
-```
 
 ```{r two-plus-zero-solution}
-ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + geom_point(mapping = aes(color = class)) + geom_smooth(data = filter(mpg, class =="subcompact"), se = FALSE)  
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + geom_point(mapping = aes(color = class)) + geom_smooth(data =mpg)  
 ```
 
 ```{r two-plus-zero-check}
 gradethis:: grade_code()
 
 ```
+```{r quiz4361KA}
+question("Comparing the 2 above graphs, notice how the second one \"obscures\" the downward trend of displ and hwy. What class of cars is causing this to occur? ",
+  answer("suv"),
+  answer("minivan"),
+  answer("2seater", correct = TRUE),
+  answer("subcompact")
+)
 
+```
 ### 3.6.1 Challenging  YY
 #### Exercise 5
 
@@ -844,7 +851,7 @@ Create the graphs below.
 
 ```
 ```{r 536-hint-1}
-"use geom_points"
+"use geom_point"
 ```
 ```{r 536-solution}
 ggplot(data = mpg) + 
@@ -854,7 +861,25 @@ ggplot(data = mpg) +
 ```{r 536-check}
 gradethis::grade_code()
 ```
+```{r quiz4361YY}
+question("In the above graph the dots are probably too large. Where do we adjust the size of the points",
+  answer("inside aes(); we place a third argument called size"),
+  answer("inside geom_point(); we place a third argument called size", correct = TRUE),
+  answer("inside ggplot(); we place a third argument called size"),
+  answer("inside geom_smooth(); we place a third argument called size")
+)
 
+```
+
+```{r quiz4361YY2}
+question("Which is the best explanation for the previous answer?",
+  answer("aes() is where we dictate what variables are mapped to which visual elements of the graph. The visual elements include the x-axes, the y-axis, the size of a point."),
+  answer("aes() is where we dictate what variables are mapped to which visual elements of the graph. The visual elements include the x-axes, the y-axis, the size of a point. If we wanted the size of a point to be related to the value of a particular variable, then we would put size in aes()"),
+  answer("aes() is where we dictate what variables are mapped to which visual elements of the graph. The visual elements include the x-axes, the y-axis, the size of a point. If we wanted the size of a point to be related to the value of a particular variable, then we would put size in aes(). If we want the size to be independent of any of our variables, then we would not put it in aes()."),
+  answer("aes() is where we dictate what variables are mapped to which visual elements of the graph. The visual elements include the x-axes, the y-axis, the size of a point. If we wanted the size of a point to be related to the value of a particular variable, then we would put size in aes(). If we want the size to be independent of any of our variables, then we would not put it in aes(). We instead put it inside geom_point(). We can also control color for all points there, etc. ", correct = TRUE)
+)
+
+```
 ####################################################################
 
 
@@ -864,7 +889,7 @@ gradethis::grade_code()
 #### Exercise 1
 
 In this execise we are going to use new dataset called diamonds.
-Run the code to get to know diamonds.
+Run the code to get to know diamonds. (note that View(diamonds) will show you the dataset but here we are thinking of another way to explore the d)
 ```{r 137, exercise=TRUE, exercise.eval=TRUE}
 
 ```
