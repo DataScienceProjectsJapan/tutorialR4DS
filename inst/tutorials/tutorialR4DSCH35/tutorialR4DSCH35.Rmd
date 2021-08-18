@@ -888,8 +888,8 @@ question("Which is the best explanation for the previous answer?",
 ### 3.7.1 Easy YY
 #### Exercise 1
 
-In this execise we are going to use new dataset called diamonds.
-Run the code to get to know diamonds. (note that View(diamonds) will show you the dataset but here we are thinking of another way to explore the d)
+In this exercise we are going to use new dataset called diamonds.
+Run the code to get to know diamonds. (note that View(diamonds) will show you the dataset but here we are thinking of another way to explore the dataset)
 ```{r 137, exercise=TRUE, exercise.eval=TRUE}
 
 ```
@@ -906,20 +906,14 @@ gradethis::grade_code()
 #### Exercise 2  
 
 ```{r quiz37}
-question("According to the text, which kind of graph compute a robust summary of the distribution and then display a specially formatted box?",
+question("According to the text, which kind of graph computes a robust summary of the distribution and displays it as a specially formatted box?",
   answer("boxplots", correct = TRUE),
   answer("bar graph"),
   answer("scatter plot"),
   answer("spider chart")
 )
 ```
-### 3.6.1 Intermediate SD
 
-#### BLANK
-
-### 3.6.1 Challenging  SD
-
-#### BLANK
 
 ####################################################################
 
@@ -928,22 +922,10 @@ question("According to the text, which kind of graph compute a robust summary of
 
 ### 3.7.1 Easy SD
 
-```{r quiz1}
-question("Which of the geom that is for displaying the results with a non-standard geom",
-  answer("geom_smooth", correct = TRUE),
-  answer("geom_point"),
-  answer("geom_bar"),
-  answer("There is no answer here.")
-)
-```
-```{r quiz1-check}
-gradethis::grade_this_code()
-```
-
 
 ```{r quiz2}
 quiz(
-  question(" ________ function is similar to the existing subset() function in R but is quite a bit faster.",
+  question(" ________ function is similar to the existing subset() function in base R but is quite a bit faster.",
     answer("rename"),
     answer("set"),
     answer("filter", correct = TRUE),
@@ -951,14 +933,12 @@ quiz(
   )
 )
 ```
-```{r quiz2-check}
-gradethis::grade_this_code()
-```
+
 
 
 ```{r quiz3}
 quiz(
-  question(" Columns can be arranged in descending order too by using the special ____ operator.",
+  question(" Columns can be arranged in descending order  by using the special ____ operator.",
     answer("asc()"),
     answer("desc()", correct = TRUE),
     answer("descending()"),
@@ -966,10 +946,7 @@ quiz(
   )
 )
 ```
-```{r quiz3-check}
-gradethis::grade_this_code()
-```
-*we will be using the nycflights database in these exercises*
+
 
 ```{r quiz4}
 quiz(
@@ -982,13 +959,11 @@ quiz(
 )
 ```
 
-```{r quiz4-check}
-gradethis::grade_this_code()
-```
 
 ```{r quiz5}
 quiz(
-  question(" Which of the following return a subset of the columns of a data frame?",
+  question(" Which of the following returns a subset of the columns of a data frame?",
+    answer("filter"),
     answer("get"),
     answer("select", correct = TRUE),
     answer("set"),
@@ -997,9 +972,6 @@ quiz(
 )
 ```
 
-```{r quiz5-check}
-gradethis::grade_this_code()
-```
 
 
 ### 3.7.1 Intermediate YY
