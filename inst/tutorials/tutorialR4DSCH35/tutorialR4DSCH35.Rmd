@@ -977,9 +977,43 @@ quiz(
 ### 3.7.1 Intermediate YY
 #### Exercise 3
 
+There are two functions for creating barcharts that are quite similar: geom_bar() and geo_col(). Typically geo_bar() will work with just one column of data. For example, in the diamonds dataset, we could work with just the column called 'cut'. The levels of that column can be seen by running levels(diamonds$cut). This shows that there are 5 unique values: 
+"Fair"      "Good"      "Very Good" "Premium"   "Ideal"
+If you just want a bar chart that shows how many of each of these there are in the dataset you can use geom_bar.
+
+```{r geo_bar1,  exercise=TRUE}
+ggplot(data = diamonds,  ) +  
+```
+```{r geo_bar1-hint-1}
+"Do not forget the aes() takes the variable of interest and we need geom_bar as well"
+```
+```{r geo_bar1-hint-2}
+"ggplot(data = diamonds, aes(cut)) + geom_bar()"
+```
 
 
-Run the code below. That code have "stat_count" and you can see the graph. Change variable of x-axis to "color".
+```{r geo_bar1-solution}
+ggplot(data = diamonds, aes(cut)) + geom_bar()
+```
+
+
+
+```{r geo_bar1-check}
+gradethis::grade_code()
+```
+
+Notice we only used one column of data above (the cut column). If we want to use two columns of data; one for the x-axis and one for the heights of each of the bars above the x-axis, then we would use geom_col() instead.
+Try running the following. You should check first to see that there are two columns of data being considered. In the code below, first we create a simplified dataset called df for this example. Second we create a graph. Note that df does have 2 columns and both will be used in the graph.
+
+```{r geom_col1, exercise=TRUE, exercise.eval=TRUE}
+df <- data.frame(trt = c("a", "b", "c"), outcome = c(2.3, 1.9,3.2))
+ggplot(df, aes(trt, outcome)) +geom_col()
+
+```
+
+
+
+Run the code below. That code uses "stat_count" and you can see the graph. Change variable of x-axis to "color".
 ```{r 337, exercise=TRUE, exercise.eval=TRUE}
 ggplot(data = diamonds) + 
   stat_count(mapping = aes(x = cut))
@@ -992,15 +1026,15 @@ ggplot(data = diamonds) +
 gradethis::grade_code()
 ```
 
-#### Exercise 4
-```{r quiz437}
-question("what does prep in the code mean? ",
-  answer("variable prep"),
-  answer("count of each variable"),
-  answer("what percentage does each varlable occupy.", correct = TRUE),
-  answer("No answer here")
-)
-```
+<!-- #### Exercise 4 -->
+<!-- ```{r quiz437} -->
+<!-- question("what does prep in the code mean? ", -->
+<!--   answer("variable prep"), -->
+<!--   answer("count of each variable"), -->
+<!--   answer("what percentage does each varlable occupy.", correct = TRUE), -->
+<!--   answer("No answer here") -->
+<!-- ) -->
+<!-- ``` -->
 ### 3.7.1 Challenging  YY
 #### Exercise 5
 
