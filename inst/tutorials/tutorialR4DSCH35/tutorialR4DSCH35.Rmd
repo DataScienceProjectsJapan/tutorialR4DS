@@ -1013,7 +1013,8 @@ ggplot(df, aes(trt, outcome)) +geom_col()
 
 
 
-Run the code below. That code uses "stat_count" and you can see the graph. Change variable of x-axis to "color".
+Run the code below. The code uses "stat_count". 
+stat_count counts the number of cases at each x position. Change variable of x-axis to "color".
 ```{r 337, exercise=TRUE, exercise.eval=TRUE}
 ggplot(data = diamonds) + 
   stat_count(mapping = aes(x = cut))
