@@ -1153,7 +1153,7 @@ In this exercise, we are going to use filter(). Run the code below (without the 
 
 ### 5.2.4 Easy SD
 
-Create a new variable called delay which comes from the sum of arr_delay and dep_delay (you could use mutate for this but for this problem use flights$delay). In the next line use summarise to find the mean delay (calling it mean_delay) and remove NAs from the delay using na.rm.
+Create a new variable called delay which comes from the sum of arr_delay and dep_delay (you could use mutate for this but for this problem use flights$delay). In the 2nd line use summarise to find the mean delay (calling it mean_delay) and remove NAs from the delay using na.rm.
 
 
 ```{r q, exercise=TRUE}
