@@ -1066,11 +1066,11 @@ gradethis::grade_code()
 
 *Let's discover multiplot Can we draw it using R?*
 
-For iris dataset, form a multiplot. Should we use facet_wrap? or facet_grid? Try to run the code and check.
+For iris dataset, form a multiplot. Should we use facet_wrap? or facet_grid? Try to run the code and check and decide for yourself which is more informative.
 
 ```{r Multiplotgrid, exercise=TRUE}
 #Facet_grid
-library(tidyverse)
+
 iris
 ggplot(data = iris,aes(x=Sepal.Length))+geom_histogram(binwidth = 0.1) + facet_grid(Species~.)
 ```
@@ -1087,6 +1087,12 @@ ggplot(data = iris,aes(x=Sepal.Length))+geom_histogram(binwidth = 0.1) + facet_w
 ### Easy 5.2.4 DN
 
 #### Exercise 5 DN
+
+```{r flights524dn}
+head(flights)
+ 
+colnames(flights)
+```
 
 Refer to flights dataset.
 Find all flights that arrived on Christmas Eve (24th December)
@@ -1110,7 +1116,11 @@ gradethis::grade_this_code()
 ## Section 5.2.4 KA
 
 ### 5.2.4 Easy KA
-
+```{r flights524KA}
+head(flights)
+ 
+colnames(flights)
+```
 Write the code to find the flights that had an arrival delay of 60 minutes or more.
 
 ```{r two-plus-8a, exercise=TRUE}
@@ -1132,19 +1142,10 @@ gradethis::grade_code()
 ### 5.2.4 Easy YY
 #### Exercise 1
 
-In this execise, we are going to use filter(). run the code to get the information of that. 
+In this exercise, we are going to use filter(). Run the code below (without the quotation marks) to explore the filter function.
 
-```{r 152, exercise=TRUE, exercise.eval=TRUE}
-
-```
-```{r 152-hint-1}
-"Use ? "
-```
-```{r 152-solution}
-?filter()
-```
-```{r 152-check}
-gradethis::grade_code()
+```{r 152, exercise=TRUE}
+"?filter()"
 ```
 
 
@@ -1152,7 +1153,7 @@ gradethis::grade_code()
 
 ### 5.2.4 Easy SD
 
-First add arr_delay and dep_delay. Rename it as delay. Find mean delay and remove NAs from the delay using na.rm.
+Create a new variable called delay which comes from the sum of arr_delay and dep_delay (you could use mutate for this but for this problem use flights$delay). In the next line use summarise to find the mean delay (calling it mean_delay) and remove NAs from the delay using na.rm.
 
 
 ```{r q, exercise=TRUE}
