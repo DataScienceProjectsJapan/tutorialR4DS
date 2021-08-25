@@ -13,7 +13,11 @@ library(tidyverse)
 library(nycflights13)
 ```
 
-#### This tutorial was written by students at Ritsumeikan Asia Pacific University in Japan as part of a collaborative project.
+##### This tutorial was written by the following students under the supervision of William Claster at Ritsumeikan Asia Pacific University in Japan as part of a collaborative project. To collaborate please contact us.
+###### Kamal Al-Tway
+###### Dang Ngo
+###### Soujanya Dash
+###### Yuji Yamaguchi
 ## Section 3.2.4 SD
 
 ### 3.2.4 Easy SD
@@ -1066,7 +1070,7 @@ gradethis::grade_code()
 
 *Let's discover multiplot Can we draw it using R?*
 
-For iris dataset, form a multiplot. Should we use facet_wrap? or facet_grid? Try to run the code and check and decide for yourself which is more informative.
+For iris dataset, form a multiplot. Should we use facet_wrap? or facet_grid? Try to run the code and check to decide for yourself which is more informative.
 
 ```{r Multiplotgrid, exercise=TRUE}
 #Facet_grid
@@ -1204,16 +1208,17 @@ gradethis::grade_this_code()
 
 ### 5.2.4 Intermediate KA
 
-wirte the code to find flights that departed between January and August
+Write the code to find flights that departed between January and August
 
 ```{r two-plus-threea, exercise=TRUE}
 
 ```
 ```{r two-plus-threea-hint-1}
-filter(flights, month >= , month <= )
+filter(flights, month >= & month <= )
+
 ```
 ```{r two-plus-threea-solution}
-filter(flights, month >= 7, month <= 9)
+filter(flights, month >= 7 & month <= 9)
 ```
 ```{r two-plus-threea-check}
 gradethis::grade_code()
@@ -1227,7 +1232,7 @@ Find all flights that depart from LGA and EWR
 
 ```
 ```{r 352-hint-1}
-"Use filter and |(or)"
+"Use filter and | (or)"
 ```
 ```{r 523-solution}
 filter(flights, dest == 'LGA' | dest == 'EWR')
@@ -1240,17 +1245,17 @@ gradethis::grade_code()
 
 ### 5.2.4 Intermediate SD
 
-*These questions will be in parts *
+*These questions will be in parts. Use 3 lines to write the answer*
 Part1: Arrange flights in the order of year, month and day
 Part2: Filter Delta flights departed in the month of November and December (carrier is DL)
 How many rows are there now? (you can check flights -don't forget to remove the quotes)
 
 ```{r flights_e, exercise=TRUE, exercise.eval=TRUE}
-"?flights"
+
 ```
 
 ```{r flights_e-hint}
-# arrange(), inside the braket there could be flights, year, month and day
+# arrange(), inside the bracket there could be flights, year, month and day
 # filter(flights, month %in% c(11, 12) & carrier == "DL")
 nrow(filter(flights, month %in% c(11, 12) & carrier == "DL"))
 ```
@@ -1274,7 +1279,7 @@ Refer to flights dataset.
 Find all flights that belong to Mesa Airlines, Hawaiian Airlines, and Alaska Airlines
 
 ```{r D25-hint}
-"type airplanes in the console"
+"check unique(flights$carrier)"
 ```
 
 ```{r D25, exercise=TRUE}
