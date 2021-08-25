@@ -18,6 +18,8 @@ library(nycflights13)
 ###### Dang Ngo
 ###### Soujanya Dash
 ###### Yuji Yamaguchi
+
+###### Do as many of the exercises as you like
 ## Section 3.2.4 SD
 
 ### 3.2.4 Easy SD
@@ -1291,7 +1293,7 @@ filter(flights, carrier == c("YV","HA","AS"))
 ```
 
 ```{r D25-check}
-gradethis::grade_this_code()
+gradethis::grade_this_code(correct = 'Good work! You could use either filter(flights, carrier == c("YV","HA","AS"))   or filter(flights, carrier == "YV"| carrier == "HA"| carrier == "AS" ) ', incorrect = 'Not quite. {code_feedback()} {random_encouragement()}')
 ```  
 
 ### 5.2.4 Challenging KA
