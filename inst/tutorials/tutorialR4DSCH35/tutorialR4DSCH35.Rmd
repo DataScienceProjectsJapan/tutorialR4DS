@@ -1296,18 +1296,19 @@ filter(flights, carrier == c("YV","HA","AS"))
 gradethis::grade_this_code(correct = 'Good work! You could use either filter(flights, carrier == c("YV","HA","AS"))   or filter(flights, carrier == "YV"| carrier == "HA"| carrier == "AS" ) ', incorrect = 'Not quite. {code_feedback()} {random_encouragement()}')
 ```  
 
-### 5.2.4 Challenging KA
+### 5.2.4  KA
 
-find the flights that Departed between midnight and 6am (inclusive).
+find the flights that Departed between midnight and 6am (inclusive). Note that midnight is coded as 2400 in dep_time.
 
 ```{r two-plus-fourb, exercise=TRUE}
 
+
+
 ```
 ```{r two-plus-fourb-solution}
-summary(flights$dep_time)
+
 filter(flights, dep_time <= 600 | dep_time == 2400)
-c(600, 1200, 2400) %% 2400
-filter(flights, dep_time %% 2400 <= 600)
+
 ```
 
 ```{r two-plus-fourb-check}
@@ -1317,7 +1318,7 @@ gradethis::grade_code()
 ### 5.2.4 Challenging  YY
 #### Exercise 3
 
-Find same flights that code below represents using !()
+Identify the same set of flights that code below selects but using R's not operator: !
 ```{r 552, exercise=TRUE, exercise.eval=TRUE}
 filter(flights, arr_delay > 60, dep_delay > 60)
 ```
@@ -1332,7 +1333,7 @@ gradethis::grade_code()
 ```
 ### 5.2.4 Challenging  SD
 
-Missing data in the flights dataset would suggest the flight being cancelled so we would prefer to remove those. Remove all the rows if there is NA in arr_delay and dep_delay.
+Missing data in the flights data set would suggest the flight being canceled so we would prefer to remove those. Remove all the rows if there is NA in arr_delay and dep_delay. Use the pipe operator: %>% 
 
 ```{r Remove_miss, exercise=TRUE, exercise.eval=TRUE}
 
@@ -1358,7 +1359,7 @@ gradethis::grade_this_code()
 
 ```{r D6}
 quiz(
-  question("Which of the following are considered arguments in arrange() ?",
+  question("Which of the following are parameters in arrange() ?",
     answer("data"),
     answer(".data", correct= TRUE),
     answer("by_group"),
