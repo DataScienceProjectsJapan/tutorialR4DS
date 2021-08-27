@@ -1407,7 +1407,7 @@ gradethis::grade_code()
 
 Run the code below and figure out what is printed.
 ```{r 153, exercise=TRUE, exercise.eval=TRUE}
-arrange(flights, year)
+arrange(flights, dep_delay)
 ```
 
 #### Exercise 2  
@@ -1492,9 +1492,7 @@ write the code to find the Flights that left the earliest.
 ```{r two-plus-2a, exercise=TRUE}
 
 ```
-```{r two-plus-2a-hint-1}
-"the code looks similiar to the answer of question 1"
-```
+
 ```{r two-plus-2a-solution}
 arrange(flights, dep_delay)
 ```
@@ -1517,10 +1515,10 @@ Find the fastest flight on March 5 2013.
 #### Exercise 4
 
 ```{r quiz153}
-question("Missing values are always sorted at where? ",
-  answer("head"),
+question("Missing values always appear where in a sort? (you can use head() and tail() to check) ",
+  answer("top"),
   answer("middle"),
-  answer("Anywhere you designate"),
+  answer("anywhere you designate"),
   answer("end", correct = TRUE)
 )
 ```
@@ -1528,12 +1526,10 @@ question("Missing values are always sorted at where? ",
 
 ### 5.3.1 Intermediate SD
 
-Make a new variable called delay which will be the total delay from departure to arrival.
+Although not particularly meaningful,make a new variable called delay which will be the total delay from departure to arrival.
 
-```{r delay, exercise=TRUE, exercise.eval=TRUE}
-library(tidyverse)
-library(nycflights13)
-flights
+```{r delay, exercise=TRUE, exercise.eval=FALSE}
+flights$delay <-
 ```
 
 ```{r delay-hint}
@@ -1545,7 +1541,7 @@ flights$delay <- flights$arr_delay + flights$dep_delay
 ```
 
 ```{r delay-check}
-gradethis::grade_this_code()
+gradethis::grade_this_code(correct = "Good work! Shortly we will learn an alternative way to construct a new variable with the mutate() function", incorrect = "Not quite. {code_feedback()} {random_encouragement()}")
 ```
 
 
@@ -1553,39 +1549,17 @@ gradethis::grade_this_code()
 
 ### Advanced 5.3.1 DN
 
-#### Exercise 27 DN
-
-Make a new column in flights dataset called speed where speed = distance/air_time. Arrange flights based on descending speed
-```{r D27, exercise=TRUE}
-flights <- flights %>%
-  mutate(speed =   /   )
-  arrange(  ,  )
-```
-
-```{r D27-hint}
-"Experiment with contains() function in dplyr package "
-```
-
-```{r D27-solution}
-flights <- flights %>%
-  mutate(speed = distance/air_time)
-  arrange(flights, desc(speed))
-```
-
-```{r D27-check}
-gradethis::grade_this_code()
-```
 
 ### 5.3.1 Challenging KA
 
-show top 10 flights that traveled the farthest and top 10 that traveled the shortest?
+Use arrange() to show top 10 flights that traveled the farthest and top 10 that traveled the shortest? Use 2 lines of code.
 
 ```{r two-plus-3a, exercise=TRUE}
+arrange()
+arrange()
+```
 
-```
-```{r two-plus-3a-hint-1}
-"The answer follows the same idea as the answer for number 1 and 2"
-```
+
 ```{r two-plus-3a-solution}
 arrange(flights, desc(distance))
 arrange(flights, distance)
@@ -1597,7 +1571,7 @@ gradethis::grade_code()
 
 ### 5.3.1 Challenging  YY
 #### Exercise 5
-Sort flights to find the most delayed flights. (No hint)
+Sort flights to find the most delayed flights. 
 
 ```{r 553, exercise=TRUE, exercise.eval=TRUE}
 
@@ -1877,6 +1851,30 @@ quiz(
   )
 )
 ```
+
+#### Exercise 27 DN
+
+Make a new column in flights dataset called speed where speed = distance/air_time. Arrange flights based on descending speed
+```{r D27, exercise=TRUE}
+flights <- flights %>%
+  mutate(speed =   /   )
+  arrange(  ,  )
+```
+
+```{r D27-hint}
+"Experiment with mutate() function in dplyr package "
+```
+
+```{r D27-solution}
+flights <- flights %>%
+  mutate(speed = distance/air_time)
+  arrange(flights, desc(speed))
+```
+
+```{r D27-check}
+gradethis::grade_this_code()
+```
+
 
 ## Section 5.5.2 KA
 
