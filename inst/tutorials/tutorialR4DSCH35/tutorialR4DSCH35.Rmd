@@ -1569,18 +1569,10 @@ gradethis::grade_code()
 ```
 
 
-### 5.3.1 Challenging  YY
-#### Exercise 5
-Sort flights to find the most delayed flights. 
-
-```{r 553, exercise=TRUE, exercise.eval=TRUE}
-
-```
-
 
 ### 5.3.1 Challenging  SD
 
-Missing data in the flights dataset would suggest the flight being cancelled so we would prefer to remove those. Remove all the rows if there is NA in arr_delay and dep_delay.
+Missing data in the flights dataset would suggest a flight being canceled so we may prefer to remove those. Remove all the rows if there is NA in arr_delay and dep_delay.
 
 ```{r Remove_missing, exercise=TRUE, exercise.eval=TRUE}
 
@@ -1609,7 +1601,7 @@ gradethis::grade_this_code()
 #### Exercise 8 DN  
 
 Refer to flights dataset.
-Rename air_time column to airtime 
+Rename the air_time column to airtime 
 
 ```{r D8, exercise=TRUE}
 rename(flights,   =     )
@@ -1633,7 +1625,7 @@ gradethis::grade_this_code()
 
 ### 5.4.1 Easy KA
 
-Use any_of () function to find dep_delay and dep_time vectors. 
+Typically any_of(var) is used to instead of all_of(var) when the set of variables (referred to as var here) may not be a subset of the variables in the tibble. However here we will just practice using the any_of() function to find dep_delay and dep_time vectors. Actually though it is not necessary and you could just get the same result with select(flights, c())
 
 ```{r two-plus-1b, exercise=TRUE}
 
@@ -1644,7 +1636,7 @@ Use any_of () function to find dep_delay and dep_time vectors.
 ```
 
 ```{r two-plus-1b-solution}
-select(flights, any_of(c("dep_time", "dep_delay", "arr_time", "arr_delay")))
+select(flights, any_of(c("dep_time", "dep_delay")))
 ```
 
 ```{r two-plus-1b-check}
@@ -1657,7 +1649,7 @@ gradethis::grade_code()
 ### 5.4.1 Easy YY
 #### Exercise 1
 
-Run ?select() to learn it.
+Run ?select() to understand it.
 ```{r 154, exercise=TRUE, exercise.eval=TRUE}
 
 ```
@@ -1694,7 +1686,7 @@ select(flights,    )
 ```
 
 ```{r D19-hint}
-"You can either list all other columns beside year, month, day or use `!` "
+"You can either list all other columns beside year, month, day but here we want to use `!` "
 ```
 
 ```{r D19-solution}
@@ -1705,9 +1697,9 @@ select(flights, !c(year, month, day))
 gradethis::grade_this_code()
 ```  
 
-### 5.4.1 Intermediat KA
+### 5.4.1 Intermediate KA
 
-find the vectors dep_time, dep_delay, arr_time, arr_delay without using dep_time, dep_delay, arr_time, arr_delay in the function,, use the starts_with()function.
+Get the tibble that contains dep_time, dep_delay, arr_time, arr_delay without using dep_time, dep_delay, arr_time, arr_delay in the function but rather use the starts_with() function.
 
 ```{r two-plus-2b, exercise=TRUE}
 
@@ -1719,25 +1711,17 @@ select(flights, starts_with("dep_"), starts_with("arr_"))
 gradethis::grade_code()
 ```
 
-### 5.4.1 Intermediate YY
-#### Exercise 2
 
-Select one column on the "flights"
-```{r 254, exercise=TRUE, exercise.eval=TRUE}
-
-```
-```{r 554-hint-1}
-"use select()"
-```
 
 ### 5.4.1 Intermediate SD
 
-In the previous question, we made a new variable called delay. Now let's arrange the delay in descending order.
+In a previous question, we created a new variable called delay using this code: flights\$delay <- flights\$arr_delay + flights\$dep_delay Now create this new variable again and then arrange it in descending order. Use two lines of code.
 ```{r arrange, exercise=TRUE, exercise.eval=TRUE}
-flights
+
 ```
 
 ```{r arrange-hint}
+flights$delay <- flights$arr_delay + flights$dep_delay
 arrange(flights, desc(delay))
 ```
 
@@ -1798,22 +1782,22 @@ gradethis::grade_code()
 ### 5.4.1 Challenging  YY
 #### Exercise 3
 
-Select the variable called "day" using starts_with(), ends_with(), contains().
-The argument of each function must be one alphabet.
+Select the variables called "day" and "dep_delay" using starts_with(), ends_with(), contains().
+The argument of each function must be one letter
 
 ```{r 554, exercise=TRUE, exercise.eval=TRUE}
 
 ```
 ```{r 5545-hint-1}
-"use ? if you are not sure about these parameter(function)"
+"use ? if you are not sure about these helper functions"
 ```
 
 ### 5.4.1 Challenging  SD
 
-Find the 5 shortest distance travelled and 5 shortest time taken.
+Find the 5 flights with the shortest time taken.
 
 ```{r question, exercise=TRUE, exercise.eval=TRUE}
-flights
+
 ```
 
 
@@ -1828,12 +1812,22 @@ flights
 
 #### Exercise 9 DN
 
+Experiment with these to understand the parameters .before and .after
+
+```{r mutateLocation, exercise=TRUE}
+df <- tibble(x = 1, y = 2)
+df %>% mutate(z = x + y)
+df %>% mutate(z = x + y, .before = 2)
+df %>% mutate(z = x + y, .after = x)
+```
+
+
 ```{r D9}
 quiz(
   question("Which of the following arguments control where new columns should appear in mutate() ?",
     answer(".data"),
     answer(".keep"),
-    answer(".before"),
+    answer(".before",  correct= TRUE),
     answer(".after", correct= TRUE)
   )
 )
