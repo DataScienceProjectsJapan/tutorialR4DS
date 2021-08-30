@@ -14,10 +14,11 @@ library(nycflights13)
 ```
 
 ###### This tutorial was written by the following students under the supervision of William Claster at Ritsumeikan Asia Pacific University in Japan as part of a seminar project. To collaborate please contact us.
-####### Kamal Al-Tway
-####### Dang Ngo
-####### Soujanya Dash
-####### Yuji Yamaguchi
+
+* Kamal Al-Tway (KA)
+* Dang Ngo (DN)
+* Soujanya Dash (SD)
+* Yuji Yamaguchi (YY)
 
 ###### Do as many of the exercises as you like
 ## Section 3.2.4 SD
