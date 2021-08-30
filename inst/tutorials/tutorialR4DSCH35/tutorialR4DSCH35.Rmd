@@ -13,7 +13,7 @@ library(tidyverse)
 library(nycflights13)
 ```
 
-###### This tutorial was written by the following students under the supervision of William Claster at Ritsumeikan Asia Pacific University in Japan as part of a seminar project. To collaborate please contact us.
+###### This tutorial was written by the following students under the supervision of Prof. Claster at Ritsumeikan Asia Pacific University in Japan as part of a seminar project. To collaborate please contact us.
 
 * Kamal Al-Tway (KA)
 * Dang Ngo (DN)
@@ -1626,7 +1626,7 @@ gradethis::grade_this_code()
 
 ### 5.4.1 Easy KA
 
-Typically any_of(var) is used to instead of all_of(var) when the set of variables (referred to as var here) may not be a subset of the variables in the tibble. However here we will just practice using the any_of() function to find dep_delay and dep_time vectors. Actually though it is not necessary and you could just get the same result with select(flights, c())
+Typically any_of(var) is used instead of all_of(var) when the set of variables (referred to as var here) may not be a subset of the variables in the tibble. However here we will just practice using the any_of() function to find dep_delay and dep_time vectors. Actually though it is not necessary and you could get the same result with select(flights, c())
 
 ```{r two-plus-1b, exercise=TRUE}
 
