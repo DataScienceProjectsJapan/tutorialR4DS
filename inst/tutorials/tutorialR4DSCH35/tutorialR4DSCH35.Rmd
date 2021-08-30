@@ -1837,7 +1837,7 @@ quiz(
 
 ```{r D10}
 quiz(
-  question("Using mutate(), What will happen to NULL values in output column ?",
+  question("Using mutate(), if a column is set to NULL, what will happen to it, for example with 'year' in ``flights %>% mutate(gain=arr_delay-dep_delay,year=NULL)`` ?",
     answer("removed", correct= TRUE),
     answer("retained"),
     answer("changed to NA"),
@@ -1845,10 +1845,35 @@ quiz(
   )
 )
 ```
+```{r w1}
+quiz(
+  question("flights has 19 columns. If we run ``flights2 <- flights %>% mutate(gain=arr_delay-dep_delay,year=NULL)`` how many columns will flights2 have?",
+    answer("18"),
+    answer("20"),
+    answer("19", correct= TRUE),
+    answer("1")
+  )
+)
+
+```
+
+```{r w2}
+quiz(
+  question("To move the 'gain' column to be the first column, to what value could we set  the '.before' parameter in:  ``flights2 <- flights %>% mutate(gain=arr_delay-dep_delay, .before= )``",
+    answer("0"),
+    answer("1", correct= TRUE),
+    answer("year", correct= TRUE),
+    answer("any of these")
+  )
+)
+
+```
+
+
 
 #### Exercise 27 DN
 
-Make a new column in flights dataset called speed where speed = distance/air_time. Arrange flights based on descending speed
+Make a new column in the flights dataset called speed where speed = distance/air_time. Arrange flights based on descending speed
 ```{r D27, exercise=TRUE}
 flights <- flights %>%
   mutate(speed =   /   )
@@ -1875,7 +1900,7 @@ gradethis::grade_this_code()
 ### 5.5.2 Easy KA
 
 ```{r quiz2b}
-question("what would the following code 1504 %/% 100 give",
+question("what would the following code ``1504 %/% 100`` give. Note to get help with these 'oddly named'  operators and functions you need to put backtics around their name like this ``?`%/%` `` ",
   answer("[1] 15", correct = TRUE),
   answer("[1] 4"),
   answer("150,400"),
@@ -1896,7 +1921,7 @@ Run the code below and figure out what is mutate(). Don't forget to remove the q
 #### Exercise 2  
 
 ```{r quiz155}
-question("If x <- 2:7, what is lag(x)?",
+question("There are two functions that are useful for time based data: lag() and lead(). They are useful for comparing values behind of or ahead of the current values, lag() pushing the data \"back\" and lead() pushing it \"forward\". If x <- 2:7, what is lag(x)?",
   answer("[1] NA  2  3  4  5  6", correct = TRUE),
   answer("[1] 2  3  4  5  6  NA"),
   answer("[1] 1  2  3  4  5  6"),
