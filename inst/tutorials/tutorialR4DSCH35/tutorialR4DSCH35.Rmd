@@ -15,10 +15,15 @@ library(nycflights13)
 
 ###### This tutorial was written by the following students under the supervision of Prof. Claster at Ritsumeikan Asia Pacific University in Japan as part of a seminar project. To collaborate please contact us.
 
+
 * Kamal Al-Tway (KA)
 * Dang Ngo (DN)
 * Soujanya Dash (SD)
 * Yuji Yamaguchi (YY)
+
+###### To learn to program machine learning algorithms in R consider [Mathematics and Programming for Machine Learning with R](https://www.amazon.com/Mathematics-Programming-Machine-Learning-R/dp/0367507854/ref=sr_1_1?crid=7Y7JVLAZ72TE&dchild=1&keywords=william+claster&qid=1630329202&sprefix=william+Claster%2Caps%2C358&sr=8-1)
+
+
 
 ###### Do as many of the exercises as you like
 ## Section 3.2.4 SD
