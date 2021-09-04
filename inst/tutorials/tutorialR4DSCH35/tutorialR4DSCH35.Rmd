@@ -56,6 +56,15 @@ ggplot(data = ) +
   geom_point(mapping = aes(x = , y = ))
 ```
 
+```{r two-plus-two-solution}
+?mpg 
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy))
+```
+
+```{r two-plus-two-check}
+gradethis::grade_this_code()
+```
 
 
 
